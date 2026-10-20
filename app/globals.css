@@ -3,13 +3,13 @@
 @import "../vendor/shadcn-tailwind-4.13.0.css";
 
 :root {
-  --af-ink: #11110f;
+  --af-ink: #ffffff;
   --af-charcoal: #292a27;
-  --af-paper: #eeeae1;
-  --af-warm: #f6f0e7;
+  --af-paper: #292a27;
+  --af-warm: #ffffff;
   --af-lavender: #9fa8ff;
   --af-lavender-light: #bfc5fd;
-  --af-line: rgba(17, 17, 15, 0.28);
+  --af-line: rgba(255, 255, 255, 0.22);
   --af-gutter: clamp(1.25rem, 3vw, 2.5625rem);
   --af-content: 85.0625rem;
 
@@ -64,7 +64,7 @@ textarea {
 
 ::selection {
   background: var(--af-lavender);
-  color: var(--af-ink);
+  color: var(--af-charcoal);
 }
 
 :focus-visible {
@@ -302,7 +302,7 @@ textarea {
 .af-feature-project {
   display: grid;
   grid-template-columns: minmax(0, 1.878fr) minmax(21rem, 1fr);
-  border: 1px solid rgba(17, 17, 15, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.22);
 }
 
 .af-feature-project__artwork {
@@ -327,7 +327,7 @@ textarea {
   flex-direction: column;
   min-height: 100%;
   padding: 2.5rem;
-  border-left: 1px solid rgba(17, 17, 15, 0.18);
+  border-left: 1px solid rgba(255, 255, 255, 0.22);
 }
 
 .af-feature-project__category {
@@ -456,9 +456,9 @@ textarea {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   align-self: end;
   margin-top: 5.45rem;
-  border-top: 1px solid rgba(17, 17, 15, 0.52);
-  border-left: 1px solid rgba(17, 17, 15, 0.52);
-  border-bottom: 1px solid rgba(17, 17, 15, 0.52);
+  border-top: 1px solid rgba(255, 255, 255, 0.28);
+  border-left: 1px solid rgba(255, 255, 255, 0.28);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
 }
 
 .af-process-card {
@@ -466,7 +466,7 @@ textarea {
   min-height: 32rem;
   flex-direction: column;
   padding: 1.2rem;
-  border-right: 1px solid rgba(17, 17, 15, 0.52);
+  border-right: 1px solid rgba(255, 255, 255, 0.28);
 }
 
 .af-process-card__copy {
@@ -494,7 +494,7 @@ textarea {
 .af-process-card__services {
   margin: 0;
   padding-top: 1rem;
-  border-top: 1px solid rgba(17, 17, 15, 0.32);
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
   font-family: "Karla", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 0.68rem;
   font-weight: 600;
@@ -674,7 +674,7 @@ textarea {
 
   .af-feature-project__content {
     min-height: 31rem;
-    border-top: 1px solid rgba(17, 17, 15, 0.18);
+    border-top: 1px solid rgba(255, 255, 255, 0.22);
     border-left: 0;
   }
 
@@ -715,7 +715,7 @@ textarea {
 
   .af-process-card {
     min-height: 27rem;
-    border-bottom: 1px solid rgba(17, 17, 15, 0.52);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.28);
   }
 
   .af-process-card:last-child {
