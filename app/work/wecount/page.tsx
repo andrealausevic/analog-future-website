@@ -6,7 +6,7 @@ import "./wecount.css";
 
 export const metadata: Metadata = {
   title: "#WeCount — Analog Future",
-  description: "An interactive reconstruction of Andrea Lausevic’s #WeCount data visualization, using published historical estimates from the Society of Family Planning.",
+  description: "An interactive view of the Society of Family Planning’s #WeCount research, tracking abortion access after Dobbs.",
 };
 
 export default function WeCountPage() {
@@ -14,8 +14,15 @@ export default function WeCountPage() {
     <main className="wc-page">
       <ProjectNavigation />
       <section className="wc-project-intro" aria-labelledby="wc-project-title">
-        <div><p className="wc-kicker">Selected work by Andrea / 2024</p><h1 id="wc-project-title">#WeCount</h1></div>
-        <div className="wc-project-description"><p>Making the impact of abortion bans visible.</p><p>A public-facing data visualization for the Society of Family Planning, translating state-by-state research into an accessible, interactive view.</p><p className="wc-kicker">Data visualization / Campaign / Information design</p></div>
+        <div className="wc-project-title-block">
+          <p className="wc-kicker">#WeCount / Data visualization</p>
+          <h1 id="wc-project-title">#WeCount</h1>
+          <p className="wc-project-tagline">Tracking abortion access after Dobbs.</p>
+        </div>
+        <div className="wc-project-description">
+          <p className="wc-kicker">Society of Family Planning</p>
+          <p className="wc-project-summary">#WeCount is a public health research initiative tracking monthly, state-by-state abortion volumes across the United States. This interactive view makes the post-Dobbs data easier to explore—showing how access shifted over time and from state to state.</p>
+        </div>
       </section>
       <WeCountExplorer />
       <CaseStudyFooter
