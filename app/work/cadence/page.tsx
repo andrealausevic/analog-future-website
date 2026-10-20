@@ -6,7 +6,7 @@ import "./cadence.css";
 export const metadata: Metadata = {
   title: "Cadence — Analog Future",
   description:
-    "Cadence is a time-awareness platform that turns everyday activity into a visual record of how life is actually lived.",
+    "Cadence is a reflective record for remembering everyday life and seeing its patterns over time.",
 };
 
 const challenges = [
@@ -41,7 +41,6 @@ export default function CadencePage() {
           <p className="project-kicker">01 / Cadence</p>
           <h1>Cadence</h1>
           <div className="cadence-hero__copy">
-            <p>A time-awareness platform for seeing how life is actually lived.</p>
             <p className="project-kicker">Product strategy · Identity · UX / UI · Design system</p>
           </div>
         </div>
@@ -49,6 +48,7 @@ export default function CadencePage() {
           <img src="/assets/home/cadence.png" alt="Blue Cadence lines folding through time." />
           <div className="cadence-hero__mark"><span>C</span><strong>Cadence</strong></div>
         </div>
+        <p className="cadence-hero__description">We built Cadence because we wanted to remember our lives better—to return to a random Tuesday and see what we did. Not only work, but the things that make up a life: how we felt, what we read or watched, what we spent, and the thoughts we wrote down. Over time, these details reveal the patterns of our lives.</p>
       </section>
 
       <section className="cadence-challenge project-section project-wrap">
