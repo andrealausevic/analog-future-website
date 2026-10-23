@@ -93,7 +93,7 @@ export default function Home() {
             <nav aria-label="Main navigation">
               <a href="#work">Work</a>
               <a href="#approach">Approach</a>
-              <a href="#studio">Studio</a>
+              <a href="/studio">Studio</a>
             </nav>
             <a className="af-header__contact" href="mailto:andrea.lausevic@gmail.com">
               Start a project <span aria-hidden="true">↗</span>
