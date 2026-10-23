@@ -6,7 +6,7 @@ export function ProjectNavigation() {
       <Wordmark />
       <nav aria-label="Project navigation">
         <a href="/#work">Work</a>
-        <a href="/#studio">About</a>
+        <a href="/studio">Studio</a>
         <a href="mailto:andrea.lausevic@gmail.com">Contact</a>
       </nav>
     </header>
