@@ -432,10 +432,8 @@ function illustratedThumbnail(id) {
   return 'data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(svg);
 }
 function photoNode(place){
-  const photo = place.photo && PHOTO_DATA[place.photo];
-  const src = photo || illustratedThumbnail(place.id);
-  const description = photo ? 'Photograph' : 'Architectural illustration';
-  return `<img class="atlas-card__photo" src="${src}" alt="${description} of ${place.title}" draggable="false" loading="eager" />`;
+  const src = illustratedThumbnail(place.id);
+  return `<img class="atlas-card__photo" src="${src}" alt="Architectural illustration of ${place.title}" draggable="false" loading="eager" />`;
 }
 const nodes=new Map();
 for(const p of places){const pin=document.createElement('button');pin.type='button';pin.className='atlas-flag';pin.style.left=p.x+'px';pin.style.top=p.y+'px';pin.setAttribute('aria-label',`Show ${p.title}, ${p.city}`);pin.title=p.title;pin.dataset.id=p.id;pin.onclick=(event)=>{event.stopPropagation();activate(p.id,true)};layer.appendChild(pin);nodes.set(p.id,pin)}
