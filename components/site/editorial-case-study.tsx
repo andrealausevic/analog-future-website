@@ -12,6 +12,7 @@ type EditorialCaseStudyProps = {
   dark?: string;
   heroImage: string;
   heroAlt: string;
+  heroInteractiveSrc?: string;
   problem: Block;
   feature: Block;
   featureImage?: string;
@@ -36,7 +37,7 @@ export function EditorialCaseStudy(props: EditorialCaseStudyProps) {
           <h1>{props.title}</h1>
           <div><p>{props.intro}</p><p className="ec-kicker">{props.meta}</p></div>
         </div>
-        <figure className="ec-hero__media"><img src={props.heroImage} alt={props.heroAlt} /></figure>
+        <figure className="ec-hero__media">{props.heroInteractiveSrc ? <iframe className="ec-hero__atlas" src={props.heroInteractiveSrc} title="Coolbuilding interactive architectural atlas" loading="eager" /> : <img src={props.heroImage} alt={props.heroAlt} />}</figure>
       </section>
 
       <section className="ec-split ec-section ec-wrap">
