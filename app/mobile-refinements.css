@@ -1,0 +1,167 @@
+/* Project service lines share the same 30% reduction at every viewport size. */
+main :is(.cadence-hero__meta, .cubed-meta, .earthen-hero__meta,
+  .vm-hero__meta, .cb-hero__meta, .ss-hero__meta) {
+  font-size: 9.625px !important;
+  line-height: 1.5 !important;
+  letter-spacing: .7px !important;
+}
+
+.mobile-only { display: none !important; }
+.image-crop, .identity-column-grid { display: block; width: 100%; height: auto; overflow: hidden; }
+.cubed-page .identity-grid { display: flex; flex-direction: column; justify-content: flex-start; gap: 20px; padding: 28px; }
+.cubed-page .identity-grid .identity-caption { position: static; margin: 0; }
+.cubed-page .identity-grid .identity-column-grid { width: 100%; height: auto; }
+
+@media (max-width: 832px) {
+  :root { --af-mobile-serif-size: 24px; }
+  .mobile-only { display: block !important; }
+  .desktop-only { display: none !important; }
+
+  /* The mobile home page uses ordinary document flow and a persistent header. */
+  main.af-home--panels > .af-panel,
+  main.af-home--panels[data-af-panels="ready"] > .af-panel,
+  main.af-home--panels[data-af-panels="ready"] > .af-hero {
+    position: relative;
+    inset: auto;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  main.af-home--panels .af-panel__tab,
+  main.af-home--panels > .af-panel-spacer { display: none; }
+  main.af-home--panels > .af-panel-anchor { scroll-margin-top: 72px; }
+  main.af-home--panels .af-panel__clip { height: auto; overflow: visible; }
+  main.af-home--panels .af-panel__clip > div { transform: none; will-change: auto; }
+  main.af-home--panels .af-home-mobile-nav { visibility: visible; transform: none; transition: none; }
+  main.af-home--panels .af-hero__inner { min-height: max(100svh, 36rem); padding-block: 96px 80px; }
+  main.af-home--panels .af-hero__copy { width: max-content; max-width: 100%; align-items: flex-start; text-align: left; }
+  main.af-home--panels .af-hero__context { justify-content: flex-start; text-align: left; }
+  main.af-home--panels .af-hero h1 { text-align: left; }
+  main.af-home--panels .af-footer,
+  main.af-home--panels .af-footer__inner { min-height: 0; }
+  main.af-home--panels .af-footer__inner { padding-bottom: 36px; }
+
+  /* Headers stay available throughout every mobile case study. */
+  main:is(.cadence-page, .cubed-page, .earthen-page, .valmia-page, .coolbuilding-page, .ss-case, .wc-page) { overflow: clip; }
+  main > .project-nav { position: sticky; top: 0; z-index: 130; background: var(--af-charcoal); }
+  main [id] { scroll-margin-top: 88px; }
+
+  /* The Earthen founders paragraph supplies the shared mobile serif scale. */
+  main :is(.project-intro, .cubed-copy h2, .earthen-platform h2,
+    .earthen-journey__item h3, .cadence-context h2, .cadence-experience h2,
+    .cadence-journey__item h3, .cadence-scope__item h3,
+    .vm-strategy__copy h2, .vm-product__copy h2, .vm-community__intro h2,
+    .vm-loop__intro h2, .vm-loop__step h3, .vm-place h2, .vm-scope__intro h2,
+    .vm-scope__item h3, .cb-idea__copy h2, .ss-product > h2,
+    .ss-feature__copy h2, .ss-challenge__intro h2, .ss-challenge__cards h3,
+    .ss-scope__intro h2, .ss-scope__list strong,
+    .project-footer.project-footer--navigation > .project-footer__statement) {
+    font-size: var(--af-mobile-serif-size) !important;
+    line-height: 1.38 !important;
+    letter-spacing: -.3px !important;
+  }
+
+  main.cadence-page .cadence-hero__media { aspect-ratio: 1.7; }
+  main.cadence-page :is(.cadence-experience__media, .cadence-analytics__grid) { display: none; }
+  main.cadence-page :is(.cadence-journey__grid, .cadence-scope__grid) { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  main.cadence-page :is(.cadence-journey__item, .cadence-scope__item) {
+    min-height: 0; height: auto; padding: 28px; border: 1px solid var(--af-line);
+  }
+  main.cadence-page :is(.cadence-journey__marker, .cadence-scope__accent) { position: static; display: block; margin-bottom: 18px; }
+
+  main.cubed-page .cubed-hero-media,
+  main.valmia-page .vm-hero__visual,
+  main.ss-case .ss-hero__visual { display: none; }
+  main.cubed-page .cubed-meta { width: 100%; }
+  main.cubed-page .cubed-hero-mobile { width: 100%; }
+  main.cubed-page .cubed-applications-mobile { margin-top: 28px; }
+  main.cubed-page .cubed-applications-mobile > svg + svg { margin-top: 12px; }
+  main.cubed-page .cubed-mobile { display: block; }
+
+  /* A shared, fluid identity grid, with visible left and right edges. */
+  main :is(.identity-system, .earthen-identity__grid) {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    grid-template-columns: minmax(0, 1fr);
+    overflow: visible;
+    border: 0;
+  }
+  main :is(.identity-system__cell, .identity-cell,
+    .earthen-identity__mark, .earthen-identity__colors,
+    .earthen-identity__type, .earthen-identity__columns) {
+    width: 100%;
+    height: auto;
+    min-height: 280px;
+    min-width: 0;
+    border: 1px solid var(--af-line);
+    padding: 28px;
+    overflow-wrap: anywhere;
+  }
+  main.cubed-page .cubed-identity { grid-template-columns: minmax(0, 1fr); row-gap: 16px; }
+  main .identity-system,
+  main .earthen-identity__grid { gap: 16px; }
+  main.earthen-page .earthen-identity { padding: 40px 24px 48px; }
+  main.earthen-page .earthen-identity > h2 { margin: 0 0 24px; }
+  main.earthen-page .earthen-identity__colors { justify-content: space-between; gap: 12px; }
+  main.earthen-page .earthen-identity__colors > div { width: auto; min-width: 0; flex: 1; }
+  main.earthen-page .earthen-identity__colors span { width: 100%; }
+  main.earthen-page .earthen-identity__columns > p { margin: 0 0 20px; }
+  main.earthen-page .earthen-identity__type > p:last-child { line-height: 1.7; }
+  main :is(.earthen-identity__colors p, .identity-colors p) { font-size: 13px; line-height: 1.6; letter-spacing: normal; text-transform: none; }
+  main .earthen-identity__type > p:not(.earthen-identity__sample) { font-size: 11px; line-height: 1.7; letter-spacing: normal; }
+  main .identity-system__detail .identity-artwork { width: 100%; height: auto; margin: 16px 0 0; }
+  main.coolbuilding-page .identity-system__detail > .project-kicker { order: -1; margin: 0; }
+  main.cubed-page .identity-colors { gap: 10px; }
+  main.cubed-page .identity-colors > div { flex: 1; width: auto; min-width: 0; }
+  main.cubed-page .identity-colors i { width: 100%; }
+
+  main.valmia-page .vm-hero__mobile { margin-top: 24px; }
+  main.valmia-page .vm-hero__mobile > svg { width: 100%; }
+  main.valmia-page .vm-product,
+  main.valmia-page .vm-strategy,
+  main.valmia-page .vm-loop,
+  main.valmia-page .vm-scope { display: block; height: auto; padding: 48px 20px; }
+  main.valmia-page .vm-product__copy { min-height: 0; border: 0; padding: 0; }
+  main.valmia-page .vm-product__copy h2 { width: 100%; }
+
+  main.valmia-page .vm-community { display: block; height: auto; padding: 48px 20px; }
+  main.valmia-page .vm-community__chart { width: 100%; max-width: 100%; height: 360px; margin: 40px 0 0; transform: none; }
+  main.valmia-page .vm-community__connections { display: none; }
+  main.valmia-page .vm-community__mobile-connections { position: absolute; top: 66px; left: 0; width: 100%; height: 228px; overflow: visible; }
+  main.valmia-page .vm-community__node { width: 45%; gap: 10px; }
+  main.valmia-page .vm-community__node strong { font-size: 20px; line-height: 1.2; }
+  main.valmia-page .vm-community__node span { font-size: 12px; line-height: 1.4; }
+  main.valmia-page .vm-community__node--owners { inset: 0 auto auto 0; }
+  main.valmia-page .vm-community__node--guests { inset: 0 0 auto auto; text-align: right; }
+  main.valmia-page .vm-community__node--locals { inset: auto auto 0 0; }
+  main.valmia-page .vm-community__node--businesses { inset: auto 0 0 auto; text-align: right; }
+  main.valmia-page .vm-community__hub { top: 50%; left: 50%; width: 72px; height: 72px; transform: translate(-50%, -50%); }
+  main.valmia-page .vm-community__hub-label { top: calc(50% + 48px); left: 50%; width: 140px; transform: translateX(-50%); }
+  main.valmia-page .vm-community__hub .vm-mark { width: 30px; height: 40px; }
+
+  /* Complete article borders across projects, including scope and metrics. */
+  main :is(.vm-loop__step, .vm-scope__item, .ss-challenge__cards article,
+    .ss-metrics__grid article, .ss-scope__list li) {
+    min-width: 0;
+    min-height: 0;
+    height: auto;
+    border: 1px solid var(--af-line) !important;
+    padding: 28px !important;
+  }
+  main :is(.vm-loop__steps, .vm-scope__items, .ss-challenge__cards,
+    .ss-metrics__grid, .ss-scope__list) { height: auto; grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  main :is(.vm-loop__dot, .vm-scope__dash) { position: static; display: block; margin-bottom: 18px; }
+
+  main.ss-case .ss-hero__mobile { margin: 28px 0 0; }
+  main.ss-case .ss-hero__mobile figure { width: 100%; margin: 0; background: #000104; }
+  main.ss-case .ss-hero__mobile .ss-hero__symbol { width: 100%; height: auto; }
+  main.ss-case .ss-hero__mobile figure:first-child { aspect-ratio: 1.5; }
+  main.ss-case .ss-hero__mobile figure:first-child svg { width: 100%; height: 100%; }
+  main.ss-case :is(.ss-hero, .ss-product, .ss-feature, .ss-challenge, .ss-applications, .ss-metrics, .ss-scope) { height: auto; }
+  main.ss-case :is(.ss-feature, .ss-challenge, .ss-scope) { display: block; }
+  main.ss-case .ss-applications__grid { display: grid; grid-template-columns: minmax(0, 1fr); height: auto; gap: 12px; }
+  main.ss-case .ss-applications__grid figure:nth-child(n) { display: block; }
+}

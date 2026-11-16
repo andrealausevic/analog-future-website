@@ -1,8 +1,8 @@
 # Analog Future website
 
-Complete approved website handoff, copied from Sites version 75 on 5 November 2026.
+Complete website handoff from Sites version 89.
 
-The source snapshot is `516eac381edd38c68783e37369b77574b44b0642`. This branch includes the homepage, Studio page, all seven case studies, local images and fonts, interactive maps, and the final logo animations.
+The source snapshot is `b8e33f1486e306f70fb1302000e59835d62e18b2`. This branch includes the homepage, Studio page, all seven case studies, local images and fonts, interactive maps, and the Cadence hero and analytics animations.
 
 [Developer setup and publishing guide](DEVELOPER_HANDOFF.md)
 

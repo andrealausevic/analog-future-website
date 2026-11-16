@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CaseStudyFooter } from "@/components/site/case-study-footer";
 import { ProjectNavigation } from "@/components/site/project-navigation";
+import { ColumnGrid } from "@/components/site/image-crop";
 import "./earthen.css";
 
 export const metadata: Metadata = {
@@ -170,6 +171,10 @@ export default function EarthenPage() {
             <p className="earthen-identity__sample">Aa</p>
             <p><strong>Canela</strong></p>
             <p>Graphik · Secondary<br />Regular / Medium<br />ABCČĆDĐEFGHIJKLMNOPQRSŠTUVZŽ<br />abcčćdđefghijklmnopqrsštuvzž</p>
+          </div>
+          <div className="earthen-identity__columns mobile-only">
+            <p className="earthen-micro">Twelve column grid</p>
+            <ColumnGrid />
           </div>
         </div>
       </section>

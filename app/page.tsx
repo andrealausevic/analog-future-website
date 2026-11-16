@@ -1,6 +1,6 @@
 import { ProcessCard } from "@/components/site/process-card";
 import { ProjectCard } from "@/components/site/project-card";
-import { ConnectTheDots } from "@/components/site/connect-the-dots";
+import { MobileHomeNavigation } from "@/components/site/mobile-home-navigation";
 import "./home-panels.css";
 
 const projects = [
@@ -87,6 +87,7 @@ const process = [
 export default function Home() {
   return (
     <main className="af-home af-home--panels" id="top">
+      <MobileHomeNavigation />
       <section className="af-hero" aria-labelledby="af-home-title">
         <div className="af-hero__inner">
           <div className="af-hero__copy">
@@ -96,22 +97,20 @@ export default function Home() {
 
             <h1 id="af-home-title">
               <span>Analog</span>
-              <em>Future</em>
+              <em><img className="af-hero__future" src="/assets/home/future-wordmark.svg" alt="Future" width="2919" height="724" /></em>
             </h1>
-
-            <ol className="af-hero__services" aria-label="Studio services">
-              <li><span>01</span><span className="af-hero__service-name">Brand strategy &amp; identity</span></li>
-              <li><span>02</span><span className="af-hero__service-name">Digital product design &amp; dev</span></li>
-              <li><span>03</span><span className="af-hero__service-name">AI products &amp; systems</span></li>
-            </ol>
           </div>
 
-          <div className="af-hero__drawing">
-            <ConnectTheDots />
-          </div>
+          <ol className="af-hero__services" aria-label="Studio services">
+            <li><span>01</span><span className="af-hero__service-name">Brand strategy &amp; identity</span></li>
+            <li><span>02</span><span className="af-hero__service-name">Digital product design &amp; dev</span></li>
+            <li><span>03</span><span className="af-hero__service-name">AI products &amp; systems</span></li>
+          </ol>
 
-          <a className="af-hero__cue af-micro" href="#studio">
-            Scroll Up
+          <a className="af-hero__cue" href="#studio" aria-label="Scroll down to the studio">
+            <svg width="20" height="30" viewBox="0 0 20 30" fill="none" aria-hidden="true">
+              <path d="M10 2v25m-7-7 7 7 7-7" stroke="currentColor" strokeWidth="1" />
+            </svg>
           </a>
         </div>
       </section>

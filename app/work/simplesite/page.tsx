@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CaseStudyFooter } from "@/components/site/case-study-footer";
 import { ProjectNavigation } from "@/components/site/project-navigation";
+import { MobileScreenshotCarousel } from "@/components/site/mobile-screenshot-carousel";
 import "../case-study-v2.css";
 import "./simplesite.css";
 
@@ -38,20 +39,19 @@ const scope = [
 ] as const;
 
 const assetRoot = "/assets/projects/simplesite-figma";
+const productSlides = [
+  ["Photo", "30 0 540 1190"],
+  ["Tag", "580 0 540 1190"],
+  ["Save", "1125 0 540 1190"],
+  ["Analyze", "1670 0 540 1190"],
+].map(([title, crop]) => ({ title, crop, src: `${assetRoot}/simplesite-product-flow@2x.png`, width: 2236, height: 1258, alt: `SimpleSite workflow: ${title}.` }));
+const calendarSlides = [
+  ["Browse by date", "350 60 600 1140"],
+  ["Daily records", "925 60 600 1140"],
+].map(([title, crop]) => ({ title, crop, src: `${assetRoot}/simplesite-calendar@2x.png`, width: 1876, height: 1248, alt: `SimpleSite: ${title}.` }));
 
-export default function SimpleSitePage() {
-  return (
-    <main className="case-study simple-case ss-case">
-      <ProjectNavigation />
-
-      <section className="ss-hero ss-shell" aria-labelledby="simplesite-title">
-        <p className="ss-mono">06</p>
-        <h1 id="simplesite-title">SimpleSite</h1>
-        <p className="ss-mono ss-hero__meta">
-          Product strategy / UX/UI / AI system / Mobile + web development · 2025–26 · Live
-        </p>
-        <figure className="ss-hero__visual">
-          <svg className="ss-hero__symbol" viewBox="0 0 2716 1120" preserveAspectRatio="xMidYMid slice" role="img" aria-label="SimpleSite construction-site photo mockup and wordmark, with the scaffold symbol gently assembling above it.">
+function SimpleSiteHeroArtwork({ crop = "0 0 2716 1120" }: { crop?: string }) {
+  return (<svg className="ss-hero__symbol" viewBox={crop} preserveAspectRatio="xMidYMid meet" role="img" aria-label="SimpleSite construction-site photo mockup and wordmark, with the scaffold symbol gently assembling above it.">
             <image href={`${assetRoot}/simplesite-hero@2x.png`} width="2716" height="1120" />
             <rect x="1945" y="353" width="234" height="234" fill="#000104" />
             <g transform="translate(1926 334) scale(.376)">
@@ -80,8 +80,27 @@ export default function SimpleSitePage() {
                 <path className="ss-scaffold__brace" pathLength="1" d="M399 598L598 399" />
               </g>
             </g>
-          </svg>
+          </svg>);
+}
+
+export default function SimpleSitePage() {
+  return (
+    <main className="case-study simple-case ss-case">
+      <ProjectNavigation />
+
+      <section className="ss-hero ss-shell" aria-labelledby="simplesite-title">
+        <p className="ss-mono">06</p>
+        <h1 id="simplesite-title">SimpleSite</h1>
+        <p className="ss-mono ss-hero__meta">
+          Product strategy / UX/UI / AI system / Mobile + web development · 2025–26 · Live
+        </p>
+        <figure className="ss-hero__visual">
+          <SimpleSiteHeroArtwork />
         </figure>
+        <div className="ss-hero__mobile mobile-only">
+          <figure><SimpleSiteHeroArtwork crop="1426 0 1290 1120" /></figure>
+          <figure><SimpleSiteHeroArtwork crop="0 0 1426 1120" /></figure>
+        </div>
         <p className="ss-hero__intro af-body">
           SimpleSite is a field documentation system built for large, complex construction projects. It turns site
           photographs, coordinates, tags, and notes into a structured record, captured in the field and searchable
@@ -92,7 +111,7 @@ export default function SimpleSitePage() {
       <section className="ss-product ss-shell ss-divider" aria-labelledby="product-system-title">
         <p className="ss-mono">The product system</p>
         <h2 id="product-system-title">Documentation<br />made easy</h2>
-        <div className="ss-product__media">
+        <div className="ss-product__media desktop-only">
           <img
             src={`${assetRoot}/simplesite-product-flow@2x.png`}
             alt="Four SimpleSite mobile screens showing photo capture, details, saving, and record search."
@@ -101,7 +120,8 @@ export default function SimpleSitePage() {
             loading="lazy"
           />
         </div>
-        <ol className="ss-stages" aria-label="SimpleSite workflow">
+        <MobileScreenshotCarousel id="simplesite-product-slides" label="SimpleSite workflow" slides={productSlides} />
+        <ol className="ss-stages desktop-only" aria-label="SimpleSite workflow">
           {stages.map(([number, label]) => (
             <li key={label}>
               <span className="ss-stage__dot" aria-hidden="true" />
@@ -157,7 +177,7 @@ export default function SimpleSitePage() {
             making it easy to revisit what happened and find the details you need.
           </p>
         </div>
-        <figure className="ss-feature__visual">
+        <figure className="ss-feature__visual desktop-only">
           <img
             src={`${assetRoot}/simplesite-calendar@2x.png`}
             alt="SimpleSite calendar and records arranged by date."
@@ -166,6 +186,7 @@ export default function SimpleSitePage() {
             loading="lazy"
           />
         </figure>
+        <MobileScreenshotCarousel id="simplesite-calendar-slides" label="SimpleSite calendar" slides={calendarSlides} />
       </section>
 
       <section className="ss-applications ss-shell" aria-labelledby="applications-title">

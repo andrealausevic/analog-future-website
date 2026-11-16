@@ -61,8 +61,8 @@
 .earthen-hero__number { letter-spacing: .8px; }
 .earthen-hero h1 {
   margin: 24px 0 0;
-  font: 700 64px/68px "Instrument Sans", "Helvetica Neue", sans-serif;
-  letter-spacing: -1.2px;
+  font: 400 25.6px/1.15 "Instrument Sans", "Helvetica Neue", sans-serif;
+  letter-spacing: -.02em;
 }
 .earthen-hero__meta { margin-top: 24px; }
 .earthen-hero__media {
@@ -543,8 +543,8 @@
   }
 
   .earthen-hero h1 {
-    font-size: 52px;
-    line-height: 56px;
+    font-size: 20.8px;
+    line-height: 1.15;
   }
 
   .earthen-hero__description {

@@ -1,30 +1,27 @@
 # Developer handoff
 
-## Approved version
+## Source snapshot
 
-This is the complete code and asset snapshot behind Analog Future's approved Sites version 75, published on 5 November 2026.
+This is the complete code and asset snapshot for Analog Future Sites version 89.
 
-- Original source commit: `516eac381edd38c68783e37369b77574b44b0642`
+- Original source commit: `b8e33f1486e306f70fb1302000e59835d62e18b2`
 - Preview: https://analog-future-case-study-preview.anjica-bananica.chatgpt.site
-- GitHub branch: `handoff/approved-website-2026-10-31`
+- GitHub branch: `handoff/analog-future-v89`
 - Intended production domain: `analog-future.co`
 
-The README has been refreshed and this guide and `SOURCE_SNAPSHOT.json` added for handoff. Application code and original assets match the approved source snapshot. The manifest records the original tracked files and Git blob hashes, including the original README.
+Application code and assets match the preview. `SOURCE_SNAPSHOT.json` records the original tracked files and Git blob hashes, including the Sites README.
 
-## Latest approved refinements
+## Updates since version 75
 
-- Shared `#181818` page background, consistent header logos, and responsive navigation.
-- All seven project opening paragraphs use the Studio body style: Instrument Sans at 17px. Earthen's founders paragraph and shared closing statements use the approved serif treatment.
-- Refined landing-page spacing, mobile illustration placement, and Cadence artwork background matching the website.
-- Identity panels use the page background, with accessible HTML labels and preserved brand artwork.
-- Updated ValMia, Earthen, SimpleSite, Coolbuilding, and Cadence copy and alignment.
-
-Production build and all 11 checks passed, including 55 internal links across nine pages.
+- Homepage wordmark, service alignment, reduced grain, and a pulsing down arrow.
+- Sticky mobile navigation and revised homepage card layout, including the shorter Cadence thumbnail.
+- Responsive case-study layouts with smaller titles, tightened service lines, screenshot crops and carousels, and identity panel adjustments.
+- Cadence blue timeslice wave, daily and yearly timeline motion, and animated hours, spend, and mood analytics.
 
 ## Get the code
 
 ```bash
-git clone --branch handoff/approved-website-2026-10-31 --single-branch https://github.com/andrealausevic/analog-future-website.git
+git clone --branch handoff/analog-future-v89 --single-branch https://github.com/andrealausevic/analog-future-website.git
 cd analog-future-website
 npm ci
 npx vite
@@ -44,8 +41,8 @@ The existing `npm run build` and `npm test` commands use Linux shell helpers wit
 
 ## What is included
 
-- Homepage and Studio page, including responsive layouts, lilac calls to action, ping-pong and connect-the-dots illustrations.
-- Cadence: sharp SVG wordmark and synchronized pulsing symbol on `#18181B`.
+- Homepage and Studio page, including responsive layouts, lilac calls to action, and Studio ping-pong.
+- Cadence has a blue timeslice wave that gathers into the logo, animated timeline views, and rolling statistics.
 - Cubed: white identity symbol and 12-column grid.
 - Earthen: original high-resolution hero photograph and SVG wordmark.
 - #WeCount: interactive historical data explorer; beige interface inside its border with the website's charcoal outside.
@@ -87,7 +84,7 @@ The portfolio pages do not currently need a database or bucket: `d1` and `r2` ar
 
 The Worker contains an optional `/_vinext/image` optimization route expecting `ASSETS` and `IMAGES` bindings. If that route will be used, configure both in the deployment target. The portfolio's current image elements load files directly from `public/`.
 
-The copied code has been built and tested locally. Publishing to the developer's own hosting account and domain remains a separate step.
+The Sites build for version 89 succeeded. Use the checks below to verify the build in the destination hosting environment.
 
 ## If using Vercel or another host
 
@@ -99,7 +96,7 @@ The repository currently has a Vinext/Cloudflare adapter. It is not configured a
 - Check Work, About, Contact, project cards, and the complete previous/next cycle.
 - Confirm fonts and high-resolution images load from local assets.
 - Check desktop and phone layouts.
-- Check Cadence pulse and SimpleSite assembly; reduced-motion settings should show still graphics.
+- Check the Cadence hero, timeline, and analytics animations on desktop and mobile. Check the SimpleSite logo assembly. Reduced-motion settings show still graphics.
 - Exercise #WeCount month/state/zoom controls and the Coolbuilding atlas.
 - Compare against the approved preview before switching the domain.
 

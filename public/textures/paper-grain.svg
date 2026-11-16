@@ -8,7 +8,7 @@
       <feFuncR type="linear" slope="2.4" intercept="-0.7"/>
       <feFuncG type="linear" slope="2.4" intercept="-0.7"/>
       <feFuncB type="linear" slope="2.4" intercept="-0.7"/>
-      <feFuncA type="linear" slope="0" intercept="1"/>
+      <feFuncA type="linear" slope="0" intercept="0.035"/>
     </feComponentTransfer>
   </filter>
   <rect width="256" height="256" fill="#808080" filter="url(#paper)"/>

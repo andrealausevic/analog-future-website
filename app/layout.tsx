@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SiteMotion } from "@/components/site/site-motion";
 import "./globals.css";
 import "./motion.css";
+import "./mobile-refinements.css";
 
 export const metadata: Metadata = {
   title: "Analog Future | Design & Product Studio",

@@ -29,7 +29,7 @@
   --af-line: rgba(255, 255, 255, 0.22);
   --af-gutter: clamp(1.25rem, 3vw, 2.5625rem);
   --af-content: 85.0625rem;
-  --af-paper-grain-opacity: 0.11;
+  --af-background-grain: url("/textures/paper-grain.svg");
 
   /* Compatibility tokens used by the interactive project pages. */
   --ink: var(--af-ink);
@@ -64,23 +64,28 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* A quiet, static paper finish shared by every page and project. */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  pointer-events: none;
-  user-select: none;
-  background: url("/textures/paper-grain.svg") repeat;
-  background-size: 256px 256px;
-  mix-blend-mode: soft-light;
-  opacity: var(--af-paper-grain-opacity);
+/* Grain belongs to the page surfaces, behind photography and screenshots. */
+body,
+main[class],
+main[class] :is(.af-hero, .af-manifesto, .af-work, .af-approach, .af-footer,
+  .studio-contact, .project-footer) {
+  background-image: var(--af-background-grain) !important;
+  background-size: 256px 256px !important;
+  background-repeat: repeat !important;
+  background-blend-mode: soft-light;
+}
+
+/* These footers share the grain already painted by their page. */
+main:is(.cadence-page, .ss-case) > .project-footer {
+  background: transparent !important;
 }
 
 @media print, (forced-colors: active) {
-  body::after {
-    display: none;
+  body,
+  main[class],
+  main[class] :is(.af-hero, .af-manifesto, .af-work, .af-approach, .af-footer,
+    .studio-contact, .project-footer) {
+    background-image: none !important;
   }
 }
 

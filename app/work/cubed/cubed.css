@@ -4,7 +4,7 @@
 .cubed-page .project-nav nav{display:flex;gap:80px;font:500 12px/1 "Instrument Sans",sans-serif;text-transform:uppercase}
 .cubed-label,.cubed-page .project-kicker{margin:0;font:500 11px/normal Karla,sans-serif;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.68)}
 .cubed-hero{height:942px;padding-top:48px!important;padding-bottom:48px!important;display:flex;flex-direction:column;gap:24px}
-.cubed-hero h1{width:400px;margin:0;font:700 64px/68px "Instrument Sans",sans-serif;letter-spacing:-1.2px}
+.cubed-hero h1{width:400px;margin:0;font: 400 25.6px/1.15 "Instrument Sans",sans-serif;letter-spacing: -.02em}
 .cubed-meta{width:600px}
 .cubed-intro{width:760px;margin:0;font:400 22px/32px Georgia,serif}
 .cubed-hero-media{display:block;width:100%;height:560px;object-fit:cover}
@@ -62,7 +62,7 @@
 .cubed-page .project-footer__statement{width:100%}
 }
 @media(max-width:560px){
-.cubed-hero h1{width:auto;font-size:52px}
+.cubed-hero h1{width:auto;font-size: 20.8px}
 .cubed-intro{font-size:19px;line-height:28px}
 .cubed-identity{grid-template-columns:1fr}
 .cubed-page .project-footer{height:auto;min-height:360px}

@@ -57,10 +57,10 @@
 .vm-hero h1 {
   margin: 24px 0 0;
   font-family: "Instrument Sans", "Helvetica Neue", sans-serif;
-  font-size: 64px;
-  font-weight: 700;
-  line-height: 68px;
-  letter-spacing: -1.2px;
+  font-size: 25.6px;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -.02em;
 }
 
 .vm-hero__meta {
@@ -618,7 +618,7 @@
   }
 
   .vm-hero h1 {
-    font-size: clamp(48px, 16vw, 64px);
+    font-size: clamp(19.2px, 6.4vw, 25.6px);
     line-height: 1;
   }
 
