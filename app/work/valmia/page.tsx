@@ -119,7 +119,7 @@ export default function ValMiaPage() {
         </div>
 
         <div className="vm-community__chart" role="img" aria-label="Owners, guests, locals, and businesses connect through one shared ValMia layer.">
-          <svg className="vm-community__connections" viewBox="0 0 860 330" aria-hidden="true">
+          <svg className="vm-community__connections" viewBox="0 0 860 330" preserveAspectRatio="none" aria-hidden="true">
             <path d="M153 92 677 286M153 286 677 92" />
             <circle cx="153" cy="92" r="4" />
             <circle cx="153" cy="286" r="4" />

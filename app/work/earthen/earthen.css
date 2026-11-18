@@ -84,14 +84,14 @@
 }
 
 .earthen-problem {
-  height: 772px;
+  padding-bottom: 68px;
   border-top-width: 2px;
 }
 
 .earthen-problem__inner,
 .earthen-editorial__inner {
   display: grid;
-  grid-template-columns: 380px 1px minmax(0, 876px);
+  grid-template-columns: min(29%, 380px) 1px minmax(0, 876px);
   column-gap: 32px;
   width: calc(100% - 119px);
   margin-left: 41px;
@@ -126,16 +126,13 @@
   grid-column: 3;
   grid-row: 1;
   width: 100%;
-  height: 634px;
   margin: 0;
-  overflow: hidden;
 }
 
 .earthen-problem__media img,
 .earthen-editorial__media img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
 }
 
 .earthen-platform {
@@ -203,11 +200,7 @@
 }
 
 .earthen-editorial {
-  height: 1131px;
-}
-
-.earthen-editorial__inner {
-  height: 1083px;
+  padding-bottom: 48px;
 }
 
 .earthen-editorial__inner > h2 {
@@ -219,9 +212,7 @@
   grid-column: 3;
   grid-row: 1;
   width: 100%;
-  height: 1015px;
   margin: 0;
-  overflow: hidden;
 }
 
 .earthen-applications {
@@ -397,10 +388,8 @@
 
 @media (max-width: 1100px) {
   .earthen-hero,
-  .earthen-problem,
   .earthen-platform,
   .earthen-journey,
-  .earthen-editorial,
   .earthen-applications,
   .earthen-identity,
   .earthen-page .project-footer {
@@ -480,16 +469,6 @@
     width: 100%;
     font-size: 23px;
     line-height: 30px;
-  }
-
-  .earthen-problem__media,
-  .earthen-editorial__media {
-    height: auto;
-  }
-
-  .earthen-problem__media img,
-  .earthen-editorial__media img {
-    height: auto;
   }
 
   .earthen-platform {
