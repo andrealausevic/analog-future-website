@@ -1,0 +1,31 @@
+name: Verify Vercel build
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: ["handoff/analog-future-v89"]
+
+permissions:
+  contents: read
+
+jobs:
+  production-build:
+    if: github.head_ref == 'deploy/vercel'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+      - run: npm ci --include=dev
+      - run: npm run build:vercel
+      - name: Check production routes
+        run: |
+          npm exec -- next start --hostname 127.0.0.1 --port 3000 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          curl --fail --silent --show-error --retry 15 --retry-connrefused --retry-delay 1 http://127.0.0.1:3000/ --output /dev/null
+          for route in / /studio /work/cadence /work/coolbuilding /work/cubed /work/earthen /work/simplesite /work/valmia /work/wecount; do
+            curl --fail --silent --show-error "http://127.0.0.1:3000$route" --output /dev/null
+            printf 'Checked %s\n' "$route"
+          done
