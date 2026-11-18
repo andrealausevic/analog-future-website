@@ -61,8 +61,8 @@ export default function ValMiaPage() {
           fetchPriority="high"
         />
         <div className="vm-hero__mobile mobile-only">
-          <ImageCrop src="/assets/projects/valmia-figma/hero@2x.png" width={2716} height={1120} crop="0 0 1718 1120" alt="Friends sharing a picnic in the Alps." />
-          <ImageCrop src="/assets/projects/valmia-figma/hero@2x.png" width={2716} height={1120} crop="1718 170 998 780" alt="ValMia brand mark on green." />
+          <figure><ImageCrop src="/assets/projects/valmia-figma/hero@2x.png" width={2716} height={1120} crop="1718 170 998 780" alt="ValMia brand mark on green." preserveAspectRatio="xMidYMid slice" /></figure>
+          <figure><ImageCrop src="/assets/projects/valmia-figma/hero@2x.png" width={2716} height={1120} crop="0 0 1718 1120" alt="Friends sharing a picnic in the Alps." preserveAspectRatio="xMidYMid slice" /></figure>
         </div>
         <p className="vm-hero__description af-body">
           ValMia is a community and experience platform for alpine destinations, helping guests, owners, locals, and businesses discover what is happening and participate in village life. Working closely with the founding team, we helped turn the early idea into a connected digital product shaping its strategy, brand, technology, and UX/UI as one coherent system.

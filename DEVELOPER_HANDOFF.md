@@ -2,9 +2,9 @@
 
 ## Source snapshot
 
-This is the complete code and asset snapshot for Analog Future Sites version 89.
+This is the complete code and asset snapshot for Analog Future Sites version 91.
 
-- Original source commit: `b8e33f1486e306f70fb1302000e59835d62e18b2`
+- Original source commit: `7e522950e063465265e9cb3ad8621a597c5432c5`
 - Preview: https://analog-future-case-study-preview.anjica-bananica.chatgpt.site
 - GitHub branch: `handoff/analog-future-v89`
 - Intended production domain: `analog-future.co`
@@ -17,6 +17,9 @@ Application code and assets match the preview. `SOURCE_SNAPSHOT.json` records th
 - Sticky mobile navigation and revised homepage card layout, including the shorter Cadence thumbnail.
 - Responsive case-study layouts with smaller titles, tightened service lines, screenshot crops and carousels, and identity panel adjustments.
 - Cadence blue timeslice wave, daily and yearly timeline motion, and animated hours, spend, and mood analytics.
+- Centered the mobile homepage hero. The navigation appears on scroll, and the three mobile service rows on the Studio page share consistent spacing.
+- More compact scope sections, logo-first layouts for SimpleSite, ValMia, and Earthen, and revised typography for the Earthen program and #WeCount intro.
+- Thinner Cadence category icons and an updated construction photo throughout the SimpleSite product walkthrough.
 
 ## Get the code
 
@@ -84,7 +87,7 @@ The portfolio pages do not currently need a database or bucket: `d1` and `r2` ar
 
 The Worker contains an optional `/_vinext/image` optimization route expecting `ASSETS` and `IMAGES` bindings. If that route will be used, configure both in the deployment target. The portfolio's current image elements load files directly from `public/`.
 
-The Sites build for version 89 succeeded. Use the checks below to verify the build in the destination hosting environment.
+The Sites build for version 91 succeeded. Use the checks below to verify the build in the destination hosting environment.
 
 ## If using Vercel or another host
 

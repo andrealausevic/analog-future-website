@@ -375,7 +375,7 @@
     box-shadow: 0 -10px 28px rgba(0, 0, 0, .13);
   }
 
-  .af-home--panels > .af-manifesto { border-top-left-radius: 0; }
+  .af-home--panels > .af-manifesto { border-top: 0; border-top-left-radius: 0; }
 
   .af-studio-teaser { margin-top: 1.25rem; }
   .af-home--panels .af-feature-project { height: auto; }
@@ -425,15 +425,16 @@
 
 @media (max-width: 832px) {
   .af-home--panels > .af-hero,
-  .af-home--panels .af-hero__inner { min-height: max(100svh, 36rem); }
+  .af-home--panels .af-hero__inner { min-height: 100svh; }
   .af-home--panels .af-hero__inner {
     display: grid;
     grid-template-columns: minmax(0, max-content);
     justify-content: center;
     justify-items: start;
-    row-gap: 40px;
-    padding-block: 64px 96px;
+    row-gap: clamp(18px, 5svh, 40px);
+    padding-block: calc(44px + max(1rem, env(safe-area-inset-bottom, 0px)));
   }
+  .af-home--panels :is(.af-hero__copy, .af-hero__services) { translate: none; }
   .af-home--panels .af-hero__copy {
     display: flex;
     width: 100%;
@@ -444,8 +445,8 @@
   .af-home--panels .af-hero__context { justify-content: center; max-width: 100%; }
   .af-home--panels .af-hero__context p { white-space: normal; text-wrap: balance; }
   .af-home--panels .af-hero h1 {
-    margin: 40px 0 0;
-    font-size: clamp(84px, 24vw, 150px);
+    margin: clamp(18px, 5svh, 40px) 0 0;
+    font-size: clamp(84px, min(24vw, 23svh), 150px);
     text-align: center;
   }
   .af-home--panels .af-hero h1 em { margin-left: 0; }
@@ -467,7 +468,7 @@
     transform: translateY(-100%);
     transition: transform 220ms ease, visibility 220ms;
   }
-  .af-home-mobile-nav[data-visible="true"] { visibility: visible; transform: none; }
+  .af-home-mobile-nav[data-visible] { visibility: visible; transform: none; }
   .af-home-mobile-nav .project-nav {
     display: grid;
     grid-template-columns: 1fr auto;

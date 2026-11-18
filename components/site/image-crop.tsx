@@ -1,12 +1,13 @@
-export function ImageCrop({ src, width, height, crop, alt, className = "" }: {
+export function ImageCrop({ src, width, height, crop, alt, className = "", preserveAspectRatio = "xMidYMid meet" }: {
   src: string;
   width: number;
   height: number;
   crop: string;
   alt: string;
   className?: string;
+  preserveAspectRatio?: string;
 }) {
-  return <svg className={`image-crop ${className}`.trim()} viewBox={crop} role="img" aria-label={alt}>
+  return <svg className={`image-crop ${className}`.trim()} viewBox={crop} preserveAspectRatio={preserveAspectRatio} role="img" aria-label={alt}>
     <image href={src} width={width} height={height} />
   </svg>;
 }

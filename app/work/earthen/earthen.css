@@ -174,17 +174,24 @@
 }
 
 .earthen-journey__item > div {
-  margin-top: auto;
+  margin-top: 20px;
+}
+
+.earthen-journey__heading {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 0;
 }
 
 .earthen-journey__stage {
-  margin: 0 0 3px;
-  font: 400 17px/22px Georgia, "Times New Roman", serif;
+  margin: 0;
+  font: 400 17px/22px var(--af-body-font);
 }
 
 .earthen-journey__item h3 {
   margin: 0;
-  font: 400 26px/31px Georgia, "Times New Roman", serif;
+  font: 400 26px/31px var(--af-body-font);
   letter-spacing: -0.25px;
 }
 
@@ -192,7 +199,7 @@
   width: 342px;
   max-width: 100%;
   margin: 22px 0 0;
-  font: 400 15px/20px Georgia, "Times New Roman", serif;
+  font: 400 15px/20px var(--af-body-font);
 }
 
 .earthen-editorial {

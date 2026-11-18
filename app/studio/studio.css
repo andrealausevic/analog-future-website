@@ -31,7 +31,17 @@
 .studio-contact__main>a span{font:normal 400 .8em "Instrument Sans",Arial,sans-serif;margin-left:20px}
 .studio-contact__footer{display:grid;grid-template-columns:1fr 1fr auto;align-items:center;min-height:102px;border-top:1px solid rgba(41,42,39,.4);font:400 12px/1.4 "Instrument Sans",Arial,sans-serif}
 @media(max-width:1100px){.studio-purpose,.studio-offerings__heading{grid-template-columns:145px 1fr;gap:24px}.studio-offerings__rows>div{grid-template-columns:145px 1fr 240px;gap:24px}}
-@media(max-width:820px){.studio-page{--studio-heading-size:clamp(45px,7vw,64px)}.studio-hero{padding-top:56px;padding-bottom:48px}.studio-purpose{grid-template-columns:1fr;gap:29px;padding-bottom:90px}.studio-offerings__rows>div{grid-template-columns:70px 1fr;gap:18px;min-height:105px}.studio-offerings__rows p{grid-column:2;padding-bottom:14px;margin-top:-13px}.studio-contact__main{grid-template-columns:1fr;gap:24px}.studio-contact__main>a{justify-self:start}}
+@media(max-width:832px) {
+  .studio-offerings__rows > div {
+    grid-template-columns: 70px minmax(0, 1fr);
+    align-items: baseline;
+    gap: 8px 18px;
+    min-height: 0;
+    padding-block: 20px;
+  }
+  .studio-offerings__rows p { grid-column: 2; }
+}
+@media(max-width:820px){.studio-page{--studio-heading-size:clamp(45px,7vw,64px)}.studio-hero{padding-top:56px;padding-bottom:48px}.studio-purpose{grid-template-columns:1fr;gap:29px;padding-bottom:90px}.studio-contact__main{grid-template-columns:1fr;gap:24px}.studio-contact__main>a{justify-self:start}}
 @media(max-width:600px){
   .studio-page{--studio-heading-size:clamp(42px,11vw,62px)}
   .studio-hero{padding-top:44px;padding-bottom:28px}
@@ -42,7 +52,7 @@
   .studio-offerings{padding-top:52px;padding-bottom:76px}
   .studio-offerings__heading{display:block;margin-bottom:38px}
   .studio-offerings__heading h2{margin-top:25px}
-  .studio-offerings__rows>div{grid-template-columns:42px 1fr;gap:12px}
+  .studio-offerings__rows > div { grid-template-columns: 42px minmax(0, 1fr); column-gap: 12px; }
   .studio-offerings h3{font-size:28px}
   .studio-contact{padding-top:55px}
   .studio-contact__main{padding-top:58px;padding-bottom:85px}
