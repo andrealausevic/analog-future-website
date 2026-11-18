@@ -89,9 +89,26 @@ The Worker contains an optional `/_vinext/image` optimization route expecting `A
 
 The Sites build for version 91 succeeded. Use the checks below to verify the build in the destination hosting environment.
 
-## If using Vercel or another host
+## Publish on Vercel
 
-The repository currently has a Vinext/Cloudflare adapter. It is not configured as a standard Vercel Next.js project or a static upload. Select and configure the appropriate adapter/runtime first, then verify the same routes, assets, and interactions. Preserve the approved application code and appearance during that hosting change.
+The `deploy/vercel` branch builds the v91 portfolio with Next.js. Use the
+repository root. Vercel reads the framework, install command, and build command
+from `vercel.json`. The portfolio routes require no environment variables.
+
+1. Import `andrealausevic/analog-future-website` as a new project in Vercel.
+2. In the project, open **Settings → Environments → Production → Branch
+   Tracking**. Set the production branch to `deploy/vercel`.
+3. From **Deployments → Create Deployment**, deploy `deploy/vercel`.
+4. When the production deployment is **Ready**, use the project's
+   `.vercel.app` domain to run the launch checks below.
+
+To run the same build locally, use Node.js 22.13 or newer and run:
+
+```bash
+npm ci --include=dev
+npm run build:vercel
+npm exec -- next start
+```
 
 ## Launch checks
 
