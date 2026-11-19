@@ -101,11 +101,20 @@ export default function Home() {
             </h1>
           </div>
 
-          <ol className="af-hero__services" aria-label="Studio services">
-            <li><span>01</span><span className="af-hero__service-name">Brand strategy &amp; identity</span></li>
-            <li><span>02</span><span className="af-hero__service-name">Digital product design &amp; dev</span></li>
-            <li><span>03</span><span className="af-hero__service-name">AI products &amp; systems</span></li>
-          </ol>
+          <ul className="af-hero__services" role="list" aria-label="Studio services">
+            <li>
+              <span className="af-hero__service-number" aria-hidden="true">01</span>
+              <span className="af-hero__service-name">Brand strategy &amp; identity</span>
+            </li>
+            <li>
+              <span className="af-hero__service-number" aria-hidden="true">02</span>
+              <span className="af-hero__service-name">Digital product design &amp; dev</span>
+            </li>
+            <li>
+              <span className="af-hero__service-number" aria-hidden="true">03</span>
+              <span className="af-hero__service-name">AI products &amp; systems</span>
+            </li>
+          </ul>
 
           <a className="af-hero__cue" href="#studio" aria-label="Scroll down to the studio">
             <svg width="20" height="30" viewBox="0 0 20 30" fill="none" aria-hidden="true">

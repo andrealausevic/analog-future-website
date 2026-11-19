@@ -167,27 +167,24 @@
 }
 
 .af-home--panels .af-hero__services {
-  --af-service-indent: 1.45rem;
   position: static;
   display: grid;
   row-gap: .6em;
   margin: 0;
   justify-self: end;
-  font-size: clamp(.7rem, .85vw, .85rem);
   line-height: 1.5;
-}
-
-.af-home--panels .af-hero__services li {
-  display: grid;
-  grid-template-columns: var(--af-service-indent) minmax(0, 1fr);
 }
 
 .af-home--panels .af-hero__services .af-hero__service-name { width: auto; }
 
-@media (min-width: 833px) {
+@media (width > 832px) {
   .af-home--panels .af-hero__services {
+    font: 400 var(--af-body-size) / var(--af-body-leading) var(--af-body-font);
+    letter-spacing: normal;
+    text-transform: none;
     transform: translateY(.4em);
   }
+  .af-home--panels .af-hero__service-number { display: none; }
 }
 
 
@@ -454,6 +451,10 @@
   }
   .af-home--panels .af-hero h1 em { margin-left: 0; }
   .af-home--panels .af-hero__services { width: 100%; margin: 0; font-size: 13px; text-align: left; }
+  .af-home--panels .af-hero__services li {
+    display: grid;
+    grid-template-columns: 1.45rem minmax(0, 1fr);
+  }
   .af-home--panels .af-process-card { min-height: 0; padding: 24px; }
   .af-home--panels .af-process-card__copy { margin-top: 32px; }
   .af-home--panels .af-process-card__copy > p { min-height: 0; }
