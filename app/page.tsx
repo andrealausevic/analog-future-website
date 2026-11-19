@@ -160,11 +160,11 @@ export default function Home() {
         </a>
         <div className="af-panel__clip">
           <div className="af-work__inner">
-            <h2 id="af-work-title" className="af-section-label af-micro">
+            <h2 id="af-work-title" className="af-section-label af-micro" data-no-motion>
               02 / Selected work
             </h2>
 
-            <article className="af-feature-project">
+            <article className="af-feature-project" data-no-motion>
               <a className="af-feature-project__artwork" href="/work/cadence">
                 <svg width="0" height="0" style={{ position: "absolute" }} aria-hidden="true" focusable="false">
                   <defs>
