@@ -505,14 +505,21 @@ textarea {
   background: var(--af-charcoal);
 }
 
+.af-project-card__picture {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  height: 100%;
+  transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 .af-project-card__artwork img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.af-project-card__link:hover .af-project-card__artwork img {
+.af-project-card__link:hover .af-project-card__picture {
   transform: scale(1.02);
 }
 
@@ -534,13 +541,12 @@ textarea {
   letter-spacing: -0.065em;
 }
 
-.af-project-card__tags {
+.af-project-card__description {
   margin: 0;
   font-family: "Karla", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 0.7rem;
-  font-weight: 600;
-  line-height: 1.35;
-  white-space: pre-wrap;
+  font-size: 0.825rem;
+  font-weight: 400;
+  line-height: 1.45;
 }
 
 .af-approach {
@@ -676,11 +682,6 @@ textarea {
   font-family: "Instrument Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 0.75rem;
   line-height: 1.5;
-}
-
-.af-footer__meta strong {
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
 }
 
 .af-footer__meta > :last-child {

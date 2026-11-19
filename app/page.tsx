@@ -1,14 +1,17 @@
 import { ProcessCard } from "@/components/site/process-card";
 import { ProjectCard } from "@/components/site/project-card";
 import { MobileHomeNavigation } from "@/components/site/mobile-home-navigation";
+import { Wordmark } from "@/components/site/wordmark";
 import "./home-panels.css";
+
+const contactEmail = "info@analogfuture.dev";
 
 const projects = [
   {
     index: "02",
     title: "Cubed",
     category: "Brand strategy, brand identity",
-    tags: "#hospitality  #finance",
+    description: "An identity and website for an accounting firm serving hospitality.",
     href: "/work/cubed",
     image: "/assets/home/cubed.png",
     imageAlt: "Cubed identity applied to violet and olive textile swatches.",
@@ -17,16 +20,17 @@ const projects = [
     index: "04",
     title: "#WeCount",
     category: "Data visualization",
-    tags: "#society-of-family-planning",
+    description: "A map showing how U.S. abortion access changed after Dobbs.",
     href: "/work/wecount",
     image: "/assets/home/wecount.png",
     imageAlt: "A map-based visualization of changes in abortion access.",
+    artworkMotion: "map",
   },
   {
     index: "03",
     title: "Earthen",
     category: "Brand strategy, brand identity",
-    tags: "#brand-strategy  #web-design",
+    description: "A brand and learning platform for a personal development practice.",
     href: "/work/earthen",
     image: "/assets/home/earthen.png",
     imageAlt: "Earthen wordmark set over a dark green landscape.",
@@ -35,16 +39,17 @@ const projects = [
     index: "05",
     title: "Valmia App",
     category: "An Analog Future digital product",
-    tags: "#app  #community",
+    description: "An app for finding local events and meeting people in alpine villages.",
     href: "/work/valmia",
     image: "/assets/home/valmia.png",
     imageAlt: "Valmia symbol over a misty alpine landscape.",
+    artworkMotion: "fog",
   },
   {
     index: "07",
     title: "Coolbuilding",
     category: "An Analog Future digital product",
-    tags: "#architecture  #map  #digital-product",
+    description: "An interactive map for discovering remarkable architecture.",
     href: "/work/coolbuilding",
     image: "/assets/home/coolbuilding.png",
     imageAlt: "Coolbuilding geometric identity in blue and gray.",
@@ -53,7 +58,7 @@ const projects = [
     index: "06",
     title: "Simple Site",
     category: "An Analog Future digital product",
-    tags: "#construction  #digital-product",
+    description: "Turns construction photos and notes into searchable records.",
     href: "/work/simplesite",
     image: "/assets/home/simplesite.png",
     imageAlt: "A detailed modern building facade in sunlight.",
@@ -189,7 +194,7 @@ export default function Home() {
               <div className="af-feature-project__content">
                 <p className="af-micro">01</p>
                 <p className="af-feature-project__category af-micro">
-                  An Analog Future product · In development
+                  An Analog Future digital product
                 </p>
                 <h3><a href="/work/cadence">Cadence</a></h3>
                 <p className="af-feature-project__description">
@@ -245,16 +250,16 @@ export default function Home() {
         <div className="af-panel__clip">
           <div className="af-footer__inner">
             <p className="af-section-label af-micro">04 / Start something</p>
-            <a className="af-footer__cta" href="mailto:email@analogfuture.com">
+            <a className="af-footer__cta" href={`mailto:${contactEmail}`}>
               <span>Have an idea that needs form?</span>
               <span><em>Let&apos;s talk</em> <span aria-hidden="true">↗</span></span>
             </a>
             <div className="af-footer__meta">
               <div className="af-footer__studio">
-                <strong>Analog Future</strong>
+                <Wordmark href="#top" />
                 <a href="/studio">Studio ↗</a>
               </div>
-              <a href="mailto:email@analogfuture.com">email@analogfuture.com</a>
+              <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
               <span>Berlin · New York</span>
               <a href="#top">Back to top ↑</a>
             </div>

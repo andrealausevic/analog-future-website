@@ -3,7 +3,8 @@
   --af-tabs-width: 100%;
   --af-tabs-left: 0px;
   --af-tab-gap: .375rem;
-  --af-tab-width: calc((var(--af-tabs-width) - 3 * var(--af-tab-gap)) / 4);
+  --af-tabs-max-width: calc(1200px + 3 * var(--af-tab-gap));
+  --af-tab-width: calc((min(var(--af-tabs-width), var(--af-tabs-max-width)) - 3 * var(--af-tab-gap)) / 4);
   --af-card-title-inset: 8.625rem;
   --af-hero-rise: 60px;
   --af-card-clearance: calc(var(--af-tab-height) + 1.5rem);
@@ -23,11 +24,12 @@
 }
 
 .af-home--panels > .af-panel {
+  --af-panel-radius: clamp(20px, 2.2vw, 32px);
   position: relative;
   z-index: var(--af-panel-level);
   overflow: visible;
   border-top: 1px solid var(--af-panel-edge);
-  border-radius: clamp(20px, 2.2vw, 32px) clamp(20px, 2.2vw, 32px) 0 0;
+  border-radius: var(--af-panel-radius) var(--af-panel-radius) 0 0;
   box-shadow: 0 -18px 48px rgba(0, 0, 0, .2);
 }
 
@@ -60,6 +62,8 @@
   --af-tab-index: 3;
   --af-panel-color: var(--af-charcoal);
   --af-panel-edge: rgba(255, 255, 255, .3);
+  /* A flush tab and card share a square right edge. A wider card has room for its corner. */
+  border-top-right-radius: clamp(0px, calc(100% - var(--af-tabs-max-width)), var(--af-panel-radius)) var(--af-panel-radius);
 }
 
 .af-panel__tab {
@@ -290,6 +294,66 @@
 .af-home--panels .af-work__inner {
   height: auto;
   padding-bottom: calc(var(--af-card-clearance) + 2.625rem);
+}
+
+.af-project-card__pulses,
+.af-project-card__fog {
+  display: none;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .af-project-card__pulses,
+  .af-project-card__fog {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .af-project-card__pulse {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: af-thumb-pulse 3.6s ease-in-out infinite;
+  }
+
+  .af-project-card__fog {
+    mix-blend-mode: screen;
+  }
+
+  .af-project-card__fog::before,
+  .af-project-card__fog::after {
+    content: "";
+    position: absolute;
+    inset: 0 -25%;
+    filter: blur(5px);
+  }
+
+  .af-project-card__fog::before {
+    background:
+      radial-gradient(ellipse 30% 11% at 53% 49%, rgb(184 205 202 / 55%), transparent),
+      radial-gradient(ellipse 24% 9% at 76% 56%, rgb(199 217 214 / 42%), transparent);
+    animation: af-thumb-fog 17s linear -4s infinite;
+  }
+
+  .af-project-card__fog::after {
+    background:
+      radial-gradient(ellipse 27% 9% at 32% 39%, rgb(180 200 199 / 36%), transparent),
+      radial-gradient(ellipse 27% 11% at 65% 61%, rgb(199 216 212 / 38%), transparent);
+    animation: af-thumb-fog 23s linear -13s infinite;
+  }
+}
+
+@keyframes af-thumb-pulse {
+  0%, 100% { opacity: 0; transform: scale(.55); }
+  42% { opacity: .9; transform: scale(1.5); }
+}
+
+@keyframes af-thumb-fog {
+  0% { opacity: 0; transform: translate(21%, 1%); }
+  22%, 75% { opacity: 1; }
+  100% { opacity: 0; transform: translate(-20%, -3%); }
 }
 
 .af-home--panels .af-approach__inner {
