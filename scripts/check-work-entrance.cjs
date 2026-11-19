@@ -12,11 +12,15 @@ const { chromium } = require(process.env.RUNNER_TEMP + "/af-check/node_modules/p
       const state = await page.evaluate(() => {
         const heading = document.getElementById("af-work-title");
         const feature = document.querySelector(".af-feature-project");
-        window.scrollTo({top:window.scrollY+heading.getBoundingClientRect().top-window.innerHeight*.42,behavior:"instant"});
+        const anchor = document.getElementById("work");
+        const inset = heading.getBoundingClientRect().top - heading.parentElement.getBoundingClientRect().top;
+        window.scrollTo({top:window.scrollY+anchor.getBoundingClientRect().top+inset-window.innerHeight*.42,behavior:"instant"});
         return new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(() => {
           const rect = heading.getBoundingClientRect();
           const hit = document.elementFromPoint(rect.left+8,rect.top+rect.height/2);
           resolve({
+            hit: hit?.className,
+            y: rect.top,
             visible: rect.top>=0 && rect.bottom<window.innerHeight && hit===heading,
             opacity:[heading,feature].map(el=>getComputedStyle(el).opacity),
             translate:[heading,feature].map(el=>getComputedStyle(el).translate),
@@ -26,7 +30,7 @@ const { chromium } = require(process.env.RUNNER_TEMP + "/af-check/node_modules/p
           });
         })));
       });
-      assert.ok(state.visible,width+"px heading is unobstructed");
+      assert.ok(state.visible,width+"px heading is unobstructed: "+JSON.stringify(state));
       assert.deepEqual(state.opacity,["1","1"]);
       assert.deepEqual(state.translate,["none","none"]);
       assert.deepEqual(state.reveal,[false,false]);
