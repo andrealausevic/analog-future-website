@@ -1,12 +1,11 @@
 type ProjectCardProps = {
-  index: string;
   title: string;
   category: string;
   description: string;
   href: string;
   image: string;
   imageAlt: string;
-  artworkMotion?: "map" | "fog";
+  artworkMotion?: "map" | "fog" | "sunset";
 };
 
 // These highlights appear in different areas of the #WeCount grid.
@@ -20,7 +19,6 @@ const mapPulses = [
 ] as const;
 
 export function ProjectCard({
-  index,
   title,
   category,
   description,
@@ -33,7 +31,7 @@ export function ProjectCard({
     <article className="af-project-card">
       <a className="af-project-card__link" href={href}>
         <div className="af-project-card__artwork">
-          <div className="af-project-card__picture">
+          <div className="af-project-card__picture" data-artwork-motion={artworkMotion}>
             <img
               src={image}
               alt={imageAlt}
@@ -49,19 +47,19 @@ export function ProjectCard({
                     key={x + ":" + y}
                     className="af-project-card__pulse"
                     fill={color}
-                    style={{ animationDelay: `-${index * 2670}ms` }}
+                    style={{ animationDelay: `-${index * 1400}ms` }}
                   >
-                    <circle className="af-project-card__pulse-halo" cx={x} cy={y} r="16" opacity=".68" />
-                    <circle cx={x} cy={y} r="3.4" />
+                    <circle className="af-project-card__pulse-halo" cx={x} cy={y} r="18" opacity=".8" />
+                    <circle cx={x} cy={y} r="5" />
                   </g>
                 ))}
               </svg>
             )}
             {artworkMotion === "fog" && <div className="af-project-card__fog" aria-hidden="true" />}
+            {artworkMotion === "sunset" && <div className="af-project-card__sunlight" aria-hidden="true" />}
           </div>
         </div>
         <div className="af-project-card__content">
-          <p className="af-micro">{index}</p>
           <p className="af-micro">{category}</p>
           <h3>{title}</h3>
           <p className="af-project-card__description">{description}</p>

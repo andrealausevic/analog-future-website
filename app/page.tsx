@@ -8,35 +8,31 @@ const contactEmail = "info@analogfuture.dev";
 
 const projects = [
   {
-    index: "02",
     title: "Cubed",
     category: "Brand strategy, brand identity",
-    description: "A warmer identity for a firm that makes hospitality finance easier.",
+    description: "A warmer face for hospitality finance.",
     href: "/work/cubed",
     image: "/assets/home/cubed.png",
     imageAlt: "Cubed identity applied to violet and olive textile swatches.",
   },
   {
-    index: "04",
     title: "#WeCount",
     category: "Data visualization",
-    description: "A map showing how U.S. abortion access changed after Dobbs.",
+    description: "Mapping changes in U.S. abortion access after Dobbs.",
     href: "/work/wecount",
     image: "/assets/home/wecount.png",
     imageAlt: "A map-based visualization of changes in abortion access.",
     artworkMotion: "map",
   },
   {
-    index: "03",
     title: "Earthen",
     category: "Brand strategy, brand identity",
-    description: "A brand and learning platform for deepening a personal practice.",
+    description: "A brand and learning platform for a growing healing practice.",
     href: "/work/earthen",
     image: "/assets/home/earthen.png",
     imageAlt: "Earthen wordmark set over a dark green landscape.",
   },
   {
-    index: "05",
     title: "Valmia App",
     category: "An Analog Future digital product",
     description: "An app for finding local events and meeting people.",
@@ -46,7 +42,6 @@ const projects = [
     artworkMotion: "fog",
   },
   {
-    index: "07",
     title: "Coolbuilding",
     category: "An Analog Future digital product",
     description: "An interactive map for discovering modern architecture.",
@@ -55,13 +50,13 @@ const projects = [
     imageAlt: "Coolbuilding geometric identity in blue and gray.",
   },
   {
-    index: "06",
     title: "Simple Site",
     category: "An Analog Future digital product",
     description: "An app that turns construction photos and notes into searchable records.",
     href: "/work/simplesite",
     image: "/assets/home/simplesite.png",
     imageAlt: "A detailed modern building facade in sunlight.",
+    artworkMotion: "sunset",
   },
 ] as const;
 
@@ -192,7 +187,6 @@ export default function Home() {
                 />
               </a>
               <div className="af-feature-project__content">
-                <p className="af-micro">01</p>
                 <p className="af-feature-project__category af-micro">
                   An Analog Future digital product
                 </p>

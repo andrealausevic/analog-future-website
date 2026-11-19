@@ -286,13 +286,11 @@
   min-height: 0;
   padding: clamp(1.5rem, 3vw, 2.25rem);
 }
-.af-home--panels .af-feature-project__content > .af-micro:first-child,
 .af-home--panels .af-feature-project__category,
 .af-home--panels .af-feature-project h3,
 .af-home--panels .af-feature-project__description,
 .af-home--panels .af-feature-project__services { position: static; }
-.af-home--panels .af-feature-project__content > .af-micro:first-child { margin: 0; }
-.af-home--panels .af-feature-project__category { margin-top: 1.25rem; }
+.af-home--panels .af-feature-project__category { margin: 0; }
 .af-home--panels .af-feature-project h3 { margin-top: 2rem; }
 .af-home--panels .af-feature-project__description {
   margin-top: 1.25rem;
@@ -311,7 +309,8 @@
 }
 
 .af-project-card__pulses,
-.af-project-card__fog {
+.af-project-card__fog,
+.af-project-card__sunlight {
   display: none;
   position: absolute;
   inset: 0;
@@ -320,7 +319,8 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .af-project-card__pulses,
-  .af-project-card__fog {
+  .af-project-card__fog,
+  .af-project-card__sunlight {
     display: block;
     width: 100%;
     height: 100%;
@@ -329,7 +329,7 @@
   .af-project-card__pulse {
     transform-box: fill-box;
     transform-origin: center;
-    animation: af-thumb-pulse 16s ease-in-out infinite;
+    animation: af-thumb-pulse 8.4s ease-in-out infinite;
   }
 
   .af-project-card__pulse-halo { filter: blur(5px); }
@@ -348,16 +348,45 @@
 
   .af-project-card__fog::before {
     background:
-      radial-gradient(ellipse 28% 12% at 53% 49%, rgb(213 230 225 / 76%), transparent),
-      radial-gradient(ellipse 23% 9% at 73% 56%, rgb(199 217 214 / 57%), transparent);
-    animation: af-thumb-fog 9s linear -3s infinite;
+      radial-gradient(ellipse 30% 13% at 53% 49%, rgb(221 235 230 / 88%), transparent),
+      radial-gradient(ellipse 25% 10% at 73% 56%, rgb(204 224 220 / 69%), transparent);
+    animation: af-thumb-fog 5s linear -1.6s infinite;
   }
 
   .af-project-card__fog::after {
     background:
-      radial-gradient(ellipse 25% 11% at 35% 40%, rgb(194 214 209 / 58%), transparent),
-      radial-gradient(ellipse 24% 10% at 65% 62%, rgb(199 216 212 / 56%), transparent);
-    animation: af-thumb-fog 13s linear -9s infinite;
+      radial-gradient(ellipse 27% 12% at 35% 40%, rgb(204 224 219 / 68%), transparent),
+      radial-gradient(ellipse 26% 11% at 65% 62%, rgb(207 226 221 / 65%), transparent);
+    animation: af-thumb-fog 7s linear -4.5s infinite;
+  }
+
+  .af-project-card__picture[data-artwork-motion="sunset"] img {
+    animation: af-thumb-dusk 9s ease-in-out infinite;
+  }
+
+  .af-project-card__sunlight {
+    mix-blend-mode: screen;
+    animation: af-thumb-sunlight 9s ease-in-out infinite;
+  }
+
+  /* The light meets the pavement at the angle of the wall in the photograph. */
+  .af-project-card__sunlight::before,
+  .af-project-card__sunlight::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-size: 160% 100%;
+    animation: af-thumb-sunlight-drift 9s ease-in-out infinite;
+  }
+
+  .af-project-card__sunlight::before {
+    clip-path: polygon(0 0, 100% 0, 100% 66%, 0 81%);
+    background-image: repeating-linear-gradient(97deg, transparent 0 12%, rgb(255 176 99 / 52%) 12.4% 17%, transparent 17.5% 21%);
+  }
+
+  .af-project-card__sunlight::after {
+    clip-path: polygon(0 81%, 100% 66%, 100% 100%, 0 100%);
+    background-image: repeating-linear-gradient(35deg, transparent 0 12%, rgb(255 174 93 / 41%) 12.5% 15.5%, transparent 16% 21%);
   }
 }
 
@@ -371,6 +400,22 @@
   0% { opacity: 0; transform: translate(35%, 3%); }
   22%, 75% { opacity: 1; }
   100% { opacity: 0; transform: translate(-35%, -4%); }
+}
+
+@keyframes af-thumb-dusk {
+  0%, 100% { filter: brightness(1); }
+  67%, 84% { filter: brightness(.66) saturate(1.16) sepia(.15); }
+}
+
+@keyframes af-thumb-sunlight {
+  0%, 100% { opacity: 0; }
+  25%, 60% { opacity: .9; }
+  86% { opacity: .2; }
+}
+
+@keyframes af-thumb-sunlight-drift {
+  0% { background-position: 30% 0; }
+  90%, 100% { background-position: 70% 0; }
 }
 
 .af-home--panels .af-approach__inner {

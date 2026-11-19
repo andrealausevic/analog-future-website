@@ -434,7 +434,6 @@ textarea {
   border-left: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.af-feature-project__content > .af-micro:first-child,
 .af-feature-project__category,
 .af-feature-project h3,
 .af-feature-project__description,
@@ -442,10 +441,6 @@ textarea {
   position: absolute;
   right: 2.5rem;
   left: 2.5rem;
-}
-
-.af-feature-project__content > .af-micro:first-child {
-  top: 2.5rem;
 }
 
 .af-feature-project__category {
@@ -468,6 +463,7 @@ textarea {
   max-width: 23rem;
   top: 20.5rem;
   margin: 0;
+  text-wrap: balance;
   font-family: "Instrument Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: clamp(1.15rem, 1.65vw, 1.405rem);
   line-height: 1.18;
@@ -543,6 +539,7 @@ textarea {
 
 .af-project-card__description {
   margin: 0;
+  text-wrap: balance;
   color: rgba(255, 255, 255, .68);
   font-family: "Karla", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 0.825rem;
@@ -813,7 +810,6 @@ textarea {
     border-left: 0;
   }
 
-  .af-feature-project__content > .af-micro:first-child,
   .af-feature-project__category,
   .af-feature-project h3,
   .af-feature-project__description,
