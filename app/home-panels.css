@@ -306,6 +306,10 @@
   padding-bottom: calc(var(--af-card-clearance) + 2.625rem);
 }
 
+@media (832px < width <= 960px) {
+  .af-home--panels .af-project-card__content { padding-inline: .75rem; }
+}
+
 .af-project-card__pulses,
 .af-project-card__fog {
   display: none;
