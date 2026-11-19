@@ -1,0 +1,64 @@
+name: Verify mobile homepage hero
+on:
+  pull_request:
+    types: [synchronize]
+    branches: ["deploy/vercel"]
+permissions:
+  contents: read
+jobs:
+  hero:
+    if: github.head_ref == 'fix/case-study-image-scaling'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+      - run: npm ci --include=dev
+      - run: npm run build:vercel
+      - name: Check hero alignment and type
+        run: |
+          npm install --prefix "$RUNNER_TEMP/hero-check" --no-audit --no-fund playwright-core@1.58.2
+          CHROME_BIN="$(command -v google-chrome || command -v google-chrome-stable || command -v chromium)"
+          export CHROME_BIN
+          npm exec -- next start --hostname 127.0.0.1 --port 3000 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          curl --fail --silent --show-error --retry 15 --retry-connrefused --retry-delay 1 http://127.0.0.1:3000/ --output /dev/null
+          node <<'NODE'
+          const assert = require("node:assert/strict");
+          const { chromium } = require(process.env.RUNNER_TEMP + "/hero-check/node_modules/playwright-core");
+          
+          (async () => {
+            const browser = await chromium.launch({ executablePath: process.env.CHROME_BIN, args: ["--no-sandbox"] });
+            try {
+              const page = await browser.newPage({ reducedMotion: "reduce" });
+              for (const width of [320, 375, 390, 430, 600, 832, 833, 1440]) {
+                await page.setViewportSize({ width, height: 844 });
+                const response = await page.goto("http://127.0.0.1:3000/");
+                assert.ok(response.ok());
+                const layout = await page.evaluate(async () => {
+                  await document.fonts.ready;
+                  const selectors = [".af-hero__context p", ".af-hero h1 span", ".af-hero__future", ".af-hero__services", ".af-manifesto__inner .af-section-label"];
+                  const boxes = selectors.map(selector => document.querySelector(selector).getBoundingClientRect());
+                  const label = getComputedStyle(document.querySelector(selectors[0]));
+                  const services = getComputedStyle(document.querySelector(selectors[3]));
+                  return { leftEdges: boxes.map(box => box.left), right: Math.max(...boxes.slice(0,4).map(box => box.right)), casing: label.textTransform, fontSize: services.fontSize };
+                });
+                if (width <= 832) {
+                  assert.ok(layout.leftEdges.every(edge => Math.abs(edge - layout.leftEdges[4]) < 1), JSON.stringify(layout));
+                  assert.ok(layout.right <= width);
+                  assert.equal(layout.casing, "none");
+                  assert.equal(layout.fontSize, "13px");
+                } else {
+                  assert.equal(layout.casing, "uppercase");
+                  assert.notEqual(layout.fontSize, "13px");
+                }
+                console.log(width + "px " + JSON.stringify(layout));
+              }
+            } finally {
+              await browser.close();
+            }
+          })().catch(error => { console.error(error); process.exitCode = 1; });
+          NODE

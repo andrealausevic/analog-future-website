@@ -420,7 +420,7 @@
   margin-top: 4rem;
 }
 
-/* The mobile opening is a centered wordmark, with no competing illustration. */
+/* Align the mobile opening to the page gutter. */
 .af-home-mobile-nav { display: none; }
 
 @media (max-width: 832px) {
@@ -428,8 +428,7 @@
   .af-home--panels .af-hero__inner { min-height: 100svh; }
   .af-home--panels .af-hero__inner {
     display: grid;
-    grid-template-columns: minmax(0, max-content);
-    justify-content: center;
+    grid-template-columns: minmax(0, 1fr);
     justify-items: start;
     row-gap: clamp(18px, 5svh, 40px);
     padding-block: calc(44px + max(1rem, env(safe-area-inset-bottom, 0px)));
@@ -439,18 +438,22 @@
     display: flex;
     width: 100%;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
   }
-  .af-home--panels .af-hero__context { justify-content: center; max-width: 100%; }
+  .af-home--panels .af-hero__context {
+    justify-content: flex-start;
+    max-width: 100%;
+    text-transform: none;
+  }
   .af-home--panels .af-hero__context p { white-space: normal; text-wrap: balance; }
   .af-home--panels .af-hero h1 {
     margin: clamp(18px, 5svh, 40px) 0 0;
     font-size: clamp(84px, min(24vw, 23svh), 150px);
-    text-align: center;
+    text-align: left;
   }
   .af-home--panels .af-hero h1 em { margin-left: 0; }
-  .af-home--panels .af-hero__services { width: 100%; margin: 0; font-size: 11px; text-align: left; }
+  .af-home--panels .af-hero__services { width: 100%; margin: 0; font-size: 13px; text-align: left; }
   .af-home--panels .af-process-card { min-height: 0; padding: 24px; }
   .af-home--panels .af-process-card__copy { margin-top: 32px; }
   .af-home--panels .af-process-card__copy > p { min-height: 0; }
