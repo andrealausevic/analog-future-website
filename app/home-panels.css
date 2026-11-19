@@ -305,7 +305,7 @@
 }
 
 @media (832px < width <= 960px) {
-  .af-home--panels .af-project-card__content { padding-inline: .75rem; }
+  .af-home--panels .af-project-card__content { padding-inline-end: .75rem; }
 }
 
 .af-project-card__pulses,
@@ -503,14 +503,14 @@
   .af-studio-teaser { margin-top: 1.25rem; }
   .af-home--panels .af-feature-project { height: auto; }
   .af-home--panels .af-feature-project__artwork { aspect-ratio: 836 / 600; }
-  .af-home--panels .af-feature-project__content { padding: 2rem; }
+  .af-home--panels .af-feature-project__content { padding: 2rem 0; }
   .af-home--panels .af-approach__inner { min-height: auto; }
   .af-home--panels .af-manifesto h2 { font-size: clamp(2.2525rem, 6.8vw, 3.4rem); }
 }
 
 @media (max-width: 576px) {
   .af-home--panels .af-manifesto h2 { font-size: clamp(2.0825rem, 10.2vw, 2.89rem); }
-  .af-home--panels .af-feature-project__content { padding: 1.5rem; }
+  .af-home--panels .af-feature-project__content { padding: 1.5rem 0; }
   .af-home--panels .af-feature-project h3 { margin-top: 2rem; }
   .af-home--panels .af-feature-project__services { margin-top: 2rem; }
   .af-home--panels .af-footer__cta { font-size: clamp(2rem, 8vw, 2.75rem); }

@@ -21,7 +21,7 @@
 
 :root {
   --af-ink: #ffffff;
-  --af-charcoal: #181818;
+  --af-charcoal: #111111;
   --af-paper: var(--af-charcoal);
   --af-warm: #ffffff;
   --af-lavender: #9fa8ff;
@@ -526,6 +526,7 @@ textarea {
   flex-direction: column;
   gap: 0.5rem;
   padding: 1.25rem;
+  padding-inline-start: 0;
 }
 
 .af-project-card h3 {
