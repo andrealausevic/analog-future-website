@@ -11,7 +11,7 @@ const projects = [
     index: "02",
     title: "Cubed",
     category: "Brand strategy, brand identity",
-    description: "An identity and website for an accounting firm serving hospitality.",
+    description: "A warmer identity for a firm that makes hospitality finance easier.",
     href: "/work/cubed",
     image: "/assets/home/cubed.png",
     imageAlt: "Cubed identity applied to violet and olive textile swatches.",
@@ -30,7 +30,7 @@ const projects = [
     index: "03",
     title: "Earthen",
     category: "Brand strategy, brand identity",
-    description: "A brand and learning platform for a personal development practice.",
+    description: "A brand and learning platform for deepening a personal practice.",
     href: "/work/earthen",
     image: "/assets/home/earthen.png",
     imageAlt: "Earthen wordmark set over a dark green landscape.",
@@ -39,7 +39,7 @@ const projects = [
     index: "05",
     title: "Valmia App",
     category: "An Analog Future digital product",
-    description: "An app for finding local events and meeting people in alpine villages.",
+    description: "An app for finding local events and meeting people.",
     href: "/work/valmia",
     image: "/assets/home/valmia.png",
     imageAlt: "Valmia symbol over a misty alpine landscape.",
@@ -49,7 +49,7 @@ const projects = [
     index: "07",
     title: "Coolbuilding",
     category: "An Analog Future digital product",
-    description: "An interactive map for discovering remarkable architecture.",
+    description: "An interactive map for discovering modern architecture.",
     href: "/work/coolbuilding",
     image: "/assets/home/coolbuilding.png",
     imageAlt: "Coolbuilding geometric identity in blue and gray.",
@@ -58,7 +58,7 @@ const projects = [
     index: "06",
     title: "Simple Site",
     category: "An Analog Future digital product",
-    description: "Turns construction photos and notes into searchable records.",
+    description: "An app that turns construction photos and notes into searchable records.",
     href: "/work/simplesite",
     image: "/assets/home/simplesite.png",
     imageAlt: "A detailed modern building facade in sunlight.",
@@ -255,12 +255,11 @@ export default function Home() {
               <span><em>Let&apos;s talk</em> <span aria-hidden="true">↗</span></span>
             </a>
             <div className="af-footer__meta">
-              <div className="af-footer__studio">
-                <Wordmark href="#top" />
-                <a href="/studio">Studio ↗</a>
-              </div>
+              <Wordmark href="#top" />
               <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
-              <span>Berlin · New York</span>
+              <span className="af-footer__location">
+                Berlin · New York · <a href="/studio">Studio ↗</a>
+              </span>
               <a href="#top">Back to top ↑</a>
             </div>
           </div>

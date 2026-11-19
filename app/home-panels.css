@@ -3,7 +3,7 @@
   --af-tabs-width: 100%;
   --af-tabs-left: 0px;
   --af-tab-gap: .375rem;
-  --af-tabs-max-width: calc(1200px + 3 * var(--af-tab-gap));
+  --af-tabs-max-width: calc(1600px + 3 * var(--af-tab-gap));
   --af-tab-width: calc((min(var(--af-tabs-width), var(--af-tabs-max-width)) - 3 * var(--af-tab-gap)) / 4);
   --af-card-title-inset: 8.625rem;
   --af-hero-rise: 60px;
@@ -122,12 +122,20 @@
 .af-home--panels .af-hero__inner { min-height: max(100svh, 42rem); }
 
 .af-home--panels .af-hero__inner {
+  --af-hero-wordmark-size: clamp(7.5rem, 14vw, 13rem);
   display: grid;
   grid-template-columns: minmax(0, 1fr) max-content;
   align-items: end;
   align-content: center;
   column-gap: clamp(3rem, 5vw, 5rem);
   padding-block: clamp(3rem, 7svh, 4.25rem) calc(var(--af-tab-height) + 6rem);
+}
+
+@media (832px < width <= 1512px) {
+  .af-home--panels .af-hero__inner {
+    grid-template-columns: minmax(0, calc(var(--af-hero-wordmark-size) * 3.65)) max-content;
+    column-gap: clamp(1.5rem, 4vw, 3.5rem);
+  }
 }
 
 .af-hero__copy { min-width: 0; }
@@ -155,7 +163,7 @@
 .af-home--panels .af-hero h1 {
   position: static;
   margin: 2.65rem 0 0;
-  font-size: clamp(7.5rem, 14vw, 13rem);
+  font-size: var(--af-hero-wordmark-size);
 }
 
 .af-home--panels .af-hero h1 em {
@@ -223,11 +231,9 @@
   padding-bottom: calc(3.45rem + var(--af-card-clearance));
 }
 
-.af-footer__studio {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  gap: .75rem;
+.af-footer__location a {
+  color: var(--af-lavender-light);
+  white-space: nowrap;
 }
 
 .af-home--panels .af-manifesto__inner {
@@ -288,7 +294,11 @@
 .af-home--panels .af-feature-project__content > .af-micro:first-child { margin: 0; }
 .af-home--panels .af-feature-project__category { margin-top: 1.25rem; }
 .af-home--panels .af-feature-project h3 { margin-top: 2rem; }
-.af-home--panels .af-feature-project__description { margin-top: 1.25rem; margin-bottom: 1.5rem; }
+.af-home--panels .af-feature-project__description {
+  margin-top: 1.25rem;
+  margin-bottom: 1.5rem;
+  color: rgba(255, 255, 255, .68);
+}
 .af-home--panels .af-feature-project__services { margin-top: auto; padding-top: 1rem; }
 
 .af-home--panels .af-work__inner {
@@ -315,8 +325,10 @@
   .af-project-card__pulse {
     transform-box: fill-box;
     transform-origin: center;
-    animation: af-thumb-pulse 3.6s ease-in-out infinite;
+    animation: af-thumb-pulse 16s ease-in-out infinite;
   }
+
+  .af-project-card__pulse-halo { filter: blur(5px); }
 
   .af-project-card__fog {
     mix-blend-mode: screen;
@@ -327,33 +339,34 @@
     content: "";
     position: absolute;
     inset: 0 -25%;
-    filter: blur(5px);
+    filter: blur(7px);
   }
 
   .af-project-card__fog::before {
     background:
-      radial-gradient(ellipse 30% 11% at 53% 49%, rgb(184 205 202 / 55%), transparent),
-      radial-gradient(ellipse 24% 9% at 76% 56%, rgb(199 217 214 / 42%), transparent);
-    animation: af-thumb-fog 17s linear -4s infinite;
+      radial-gradient(ellipse 28% 12% at 53% 49%, rgb(213 230 225 / 76%), transparent),
+      radial-gradient(ellipse 23% 9% at 73% 56%, rgb(199 217 214 / 57%), transparent);
+    animation: af-thumb-fog 9s linear -3s infinite;
   }
 
   .af-project-card__fog::after {
     background:
-      radial-gradient(ellipse 27% 9% at 32% 39%, rgb(180 200 199 / 36%), transparent),
-      radial-gradient(ellipse 27% 11% at 65% 61%, rgb(199 216 212 / 38%), transparent);
-    animation: af-thumb-fog 23s linear -13s infinite;
+      radial-gradient(ellipse 25% 11% at 35% 40%, rgb(194 214 209 / 58%), transparent),
+      radial-gradient(ellipse 24% 10% at 65% 62%, rgb(199 216 212 / 56%), transparent);
+    animation: af-thumb-fog 13s linear -9s infinite;
   }
 }
 
 @keyframes af-thumb-pulse {
-  0%, 100% { opacity: 0; transform: scale(.55); }
-  42% { opacity: .9; transform: scale(1.5); }
+  0%, 31%, 100% { opacity: 0; transform: scale(.45); }
+  8%, 22% { opacity: 1; transform: scale(1.12); }
+  15% { opacity: .65; transform: scale(.85); }
 }
 
 @keyframes af-thumb-fog {
-  0% { opacity: 0; transform: translate(21%, 1%); }
+  0% { opacity: 0; transform: translate(35%, 3%); }
   22%, 75% { opacity: 1; }
-  100% { opacity: 0; transform: translate(-20%, -3%); }
+  100% { opacity: 0; transform: translate(-35%, -4%); }
 }
 
 .af-home--panels .af-approach__inner {

@@ -9,17 +9,14 @@ type ProjectCardProps = {
   artworkMotion?: "map" | "fog";
 };
 
-// Positions match the highlighted clusters and dots in the #WeCount thumbnail.
+// These highlights appear in different areas of the #WeCount grid.
 const mapPulses = [
-  [113, 130, "#da920d"],
-  [154, 104, "#da920d"],
-  [185, 177, "#31932d"],
-  [232, 226, "#31932d"],
-  [89, 161, "#262826"],
-  [273, 170, "#262826"],
-  [330, 210, "#262826"],
-  [145, 251, "#262826"],
-  [273, 290, "#262826"],
+  [82, 90, "#f7bd29"],
+  [263, 147, "#63cb40"],
+  [321, 205, "#f7bd29"],
+  [103, 279, "#63cb40"],
+  [338, 307, "#f7bd29"],
+  [176, 354, "#63cb40"],
 ] as const;
 
 export function ProjectCard({
@@ -52,10 +49,10 @@ export function ProjectCard({
                     key={x + ":" + y}
                     className="af-project-card__pulse"
                     fill={color}
-                    style={{ animationDelay: `-${index * 390}ms` }}
+                    style={{ animationDelay: `-${index * 2670}ms` }}
                   >
-                    <circle cx={x} cy={y} r="6" opacity=".26" />
-                    <circle cx={x} cy={y} r="2.3" />
+                    <circle className="af-project-card__pulse-halo" cx={x} cy={y} r="16" opacity=".68" />
+                    <circle cx={x} cy={y} r="3.4" />
                   </g>
                 ))}
               </svg>
