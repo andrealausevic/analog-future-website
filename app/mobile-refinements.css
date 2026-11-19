@@ -34,9 +34,6 @@ main :is(.cadence-hero__meta, .cubed-meta, .earthen-hero__meta,
   main.af-home--panels > .af-panel-anchor { scroll-margin-top: 72px; }
   main.af-home--panels .af-panel__clip { height: auto; overflow: visible; }
   main.af-home--panels .af-panel__clip > div { transform: none; will-change: auto; }
-  main.af-home--panels .af-hero__copy { width: max-content; max-width: 100%; align-items: flex-start; text-align: left; }
-  main.af-home--panels .af-hero__context { justify-content: flex-start; text-align: left; }
-  main.af-home--panels .af-hero h1 { text-align: left; }
   main.af-home--panels .af-footer,
   main.af-home--panels .af-footer__inner { min-height: 0; }
   main.af-home--panels .af-footer__inner { padding-bottom: 36px; }

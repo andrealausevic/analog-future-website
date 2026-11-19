@@ -61,7 +61,7 @@
 .ss-hero__visual {
   display: grid;
   place-items: center;
-  height: 560px;
+  aspect-ratio: 2716 / 1120;
   margin-top: 53px;
   overflow: hidden;
   background: #000104;
@@ -491,7 +491,6 @@
     height: auto;
   }
 
-  .ss-hero__visual { height: auto; aspect-ratio: 1358 / 560; }
   .ss-product { padding-bottom: 72px; }
   .ss-feature { grid-template-columns: 270px minmax(0, 1fr); column-gap: 48px; }
   .ss-feature__visual { height: auto; aspect-ratio: 938 / 624; }

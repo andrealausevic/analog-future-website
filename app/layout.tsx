@@ -9,8 +9,8 @@ export const metadata: Metadata = {
   description:
     "Analog Future is an independent studio creating brand systems, digital products, and visual communication.",
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: "/favicon.svg?v=2",
+    shortcut: "/favicon.svg?v=2",
   },
 };
 

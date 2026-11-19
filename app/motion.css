@@ -72,8 +72,8 @@
 
   .af-feature-project__artwork img,
   .af-feature-project__artwork:hover img,
-  .af-project-card__artwork img,
-  .af-project-card__link:hover .af-project-card__artwork img {
+  .af-project-card__picture,
+  .af-project-card__link:hover .af-project-card__picture {
     transition: none;
     transform: none;
   }

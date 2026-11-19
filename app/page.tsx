@@ -1,62 +1,62 @@
 import { ProcessCard } from "@/components/site/process-card";
 import { ProjectCard } from "@/components/site/project-card";
 import { MobileHomeNavigation } from "@/components/site/mobile-home-navigation";
+import { Wordmark } from "@/components/site/wordmark";
 import "./home-panels.css";
+
+const contactEmail = "info@analogfuture.dev";
 
 const projects = [
   {
-    index: "02",
     title: "Cubed",
     category: "Brand strategy, brand identity",
-    tags: "#hospitality  #finance",
+    description: "A warmer face for hospitality finance.",
     href: "/work/cubed",
     image: "/assets/home/cubed.png",
     imageAlt: "Cubed identity applied to violet and olive textile swatches.",
   },
   {
-    index: "04",
     title: "#WeCount",
     category: "Data visualization",
-    tags: "#society-of-family-planning",
+    description: "Mapping changes in U.S. abortion access after Dobbs.",
     href: "/work/wecount",
     image: "/assets/home/wecount.png",
     imageAlt: "A map-based visualization of changes in abortion access.",
+    artworkMotion: "map",
   },
   {
-    index: "03",
     title: "Earthen",
     category: "Brand strategy, brand identity",
-    tags: "#brand-strategy  #web-design",
+    description: "A brand and learning platform for a growing healing practice.",
     href: "/work/earthen",
     image: "/assets/home/earthen.png",
     imageAlt: "Earthen wordmark set over a dark green landscape.",
   },
   {
-    index: "05",
     title: "Valmia App",
     category: "An Analog Future digital product",
-    tags: "#app  #community",
+    description: "An app for finding local events and meeting people.",
     href: "/work/valmia",
     image: "/assets/home/valmia.png",
     imageAlt: "Valmia symbol over a misty alpine landscape.",
+    artworkMotion: "fog",
   },
   {
-    index: "07",
     title: "Coolbuilding",
     category: "An Analog Future digital product",
-    tags: "#architecture  #map  #digital-product",
+    description: "An interactive map for discovering modern architecture.",
     href: "/work/coolbuilding",
     image: "/assets/home/coolbuilding.png",
     imageAlt: "Coolbuilding geometric identity in blue and gray.",
   },
   {
-    index: "06",
     title: "Simple Site",
     category: "An Analog Future digital product",
-    tags: "#construction  #digital-product",
+    description: "An app that turns construction photos and notes into searchable records.",
     href: "/work/simplesite",
     image: "/assets/home/simplesite.png",
     imageAlt: "A detailed modern building facade in sunlight.",
+    artworkMotion: "sunset",
   },
 ] as const;
 
@@ -101,11 +101,20 @@ export default function Home() {
             </h1>
           </div>
 
-          <ol className="af-hero__services" aria-label="Studio services">
-            <li><span>01</span><span className="af-hero__service-name">Brand strategy &amp; identity</span></li>
-            <li><span>02</span><span className="af-hero__service-name">Digital product design &amp; dev</span></li>
-            <li><span>03</span><span className="af-hero__service-name">AI products &amp; systems</span></li>
-          </ol>
+          <ul className="af-hero__services" role="list" aria-label="Studio services">
+            <li>
+              <span className="af-hero__service-number" aria-hidden="true">01</span>
+              <span className="af-hero__service-name">Brand strategy &amp; identity</span>
+            </li>
+            <li>
+              <span className="af-hero__service-number" aria-hidden="true">02</span>
+              <span className="af-hero__service-name">Digital product design &amp; dev</span>
+            </li>
+            <li>
+              <span className="af-hero__service-number" aria-hidden="true">03</span>
+              <span className="af-hero__service-name">AI products &amp; systems</span>
+            </li>
+          </ul>
 
           <a className="af-hero__cue" href="#studio" aria-label="Scroll down to the studio">
             <svg width="20" height="30" viewBox="0 0 20 30" fill="none" aria-hidden="true">
@@ -178,9 +187,8 @@ export default function Home() {
                 />
               </a>
               <div className="af-feature-project__content">
-                <p className="af-micro">01</p>
                 <p className="af-feature-project__category af-micro">
-                  An Analog Future product · In development
+                  An Analog Future digital product
                 </p>
                 <h3><a href="/work/cadence">Cadence</a></h3>
                 <p className="af-feature-project__description">
@@ -236,17 +244,16 @@ export default function Home() {
         <div className="af-panel__clip">
           <div className="af-footer__inner">
             <p className="af-section-label af-micro">04 / Start something</p>
-            <a className="af-footer__cta" href="mailto:email@analogfuture.com">
+            <a className="af-footer__cta" href={`mailto:${contactEmail}`}>
               <span>Have an idea that needs form?</span>
               <span><em>Let&apos;s talk</em> <span aria-hidden="true">↗</span></span>
             </a>
             <div className="af-footer__meta">
-              <div className="af-footer__studio">
-                <strong>Analog Future</strong>
-                <a href="/studio">Studio ↗</a>
-              </div>
-              <a href="mailto:email@analogfuture.com">email@analogfuture.com</a>
-              <span>Berlin · New York</span>
+              <Wordmark href="#top" />
+              <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
+              <span className="af-footer__location">
+                Berlin · New York · <a href="/studio">Studio ↗</a>
+              </span>
               <a href="#top">Back to top ↑</a>
             </div>
           </div>

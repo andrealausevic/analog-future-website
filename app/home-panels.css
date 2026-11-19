@@ -3,7 +3,8 @@
   --af-tabs-width: 100%;
   --af-tabs-left: 0px;
   --af-tab-gap: .375rem;
-  --af-tab-width: calc((var(--af-tabs-width) - 3 * var(--af-tab-gap)) / 4);
+  --af-tabs-max-width: calc(1600px + 3 * var(--af-tab-gap));
+  --af-tab-width: calc((min(var(--af-tabs-width), var(--af-tabs-max-width)) - 3 * var(--af-tab-gap)) / 4);
   --af-card-title-inset: 8.625rem;
   --af-hero-rise: 60px;
   --af-card-clearance: calc(var(--af-tab-height) + 1.5rem);
@@ -23,11 +24,12 @@
 }
 
 .af-home--panels > .af-panel {
+  --af-panel-radius: clamp(20px, 2.2vw, 32px);
   position: relative;
   z-index: var(--af-panel-level);
   overflow: visible;
   border-top: 1px solid var(--af-panel-edge);
-  border-radius: clamp(20px, 2.2vw, 32px) clamp(20px, 2.2vw, 32px) 0 0;
+  border-radius: var(--af-panel-radius) var(--af-panel-radius) 0 0;
   box-shadow: 0 -18px 48px rgba(0, 0, 0, .2);
 }
 
@@ -60,6 +62,8 @@
   --af-tab-index: 3;
   --af-panel-color: var(--af-charcoal);
   --af-panel-edge: rgba(255, 255, 255, .3);
+  /* A flush tab and card share a square right edge. A wider card has room for its corner. */
+  border-top-right-radius: clamp(0px, calc(100% - var(--af-tabs-max-width)), var(--af-panel-radius)) var(--af-panel-radius);
 }
 
 .af-panel__tab {
@@ -118,12 +122,20 @@
 .af-home--panels .af-hero__inner { min-height: max(100svh, 42rem); }
 
 .af-home--panels .af-hero__inner {
+  --af-hero-wordmark-size: clamp(7.5rem, 14vw, 13rem);
   display: grid;
   grid-template-columns: minmax(0, 1fr) max-content;
   align-items: end;
   align-content: center;
   column-gap: clamp(3rem, 5vw, 5rem);
   padding-block: clamp(3rem, 7svh, 4.25rem) calc(var(--af-tab-height) + 6rem);
+}
+
+@media (832px < width <= 1512px) {
+  .af-home--panels .af-hero__inner {
+    grid-template-columns: minmax(0, calc(var(--af-hero-wordmark-size) * 3.65)) max-content;
+    column-gap: clamp(1.5rem, 4vw, 3.5rem);
+  }
 }
 
 .af-hero__copy { min-width: 0; }
@@ -151,7 +163,7 @@
 .af-home--panels .af-hero h1 {
   position: static;
   margin: 2.65rem 0 0;
-  font-size: clamp(7.5rem, 14vw, 13rem);
+  font-size: var(--af-hero-wordmark-size);
 }
 
 .af-home--panels .af-hero h1 em {
@@ -167,27 +179,24 @@
 }
 
 .af-home--panels .af-hero__services {
-  --af-service-indent: 1.45rem;
   position: static;
   display: grid;
   row-gap: .6em;
   margin: 0;
   justify-self: end;
-  font-size: clamp(.7rem, .85vw, .85rem);
   line-height: 1.5;
-}
-
-.af-home--panels .af-hero__services li {
-  display: grid;
-  grid-template-columns: var(--af-service-indent) minmax(0, 1fr);
 }
 
 .af-home--panels .af-hero__services .af-hero__service-name { width: auto; }
 
-@media (min-width: 833px) {
+@media (width > 832px) {
   .af-home--panels .af-hero__services {
+    font: 400 var(--af-body-size) / var(--af-body-leading) var(--af-body-font);
+    letter-spacing: normal;
+    text-transform: none;
     transform: translateY(.4em);
   }
+  .af-home--panels .af-hero__service-number { display: none; }
 }
 
 
@@ -222,11 +231,9 @@
   padding-bottom: calc(3.45rem + var(--af-card-clearance));
 }
 
-.af-footer__studio {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  gap: .75rem;
+.af-footer__location a {
+  color: var(--af-lavender-light);
+  white-space: nowrap;
 }
 
 .af-home--panels .af-manifesto__inner {
@@ -279,20 +286,136 @@
   min-height: 0;
   padding: clamp(1.5rem, 3vw, 2.25rem);
 }
-.af-home--panels .af-feature-project__content > .af-micro:first-child,
 .af-home--panels .af-feature-project__category,
 .af-home--panels .af-feature-project h3,
 .af-home--panels .af-feature-project__description,
 .af-home--panels .af-feature-project__services { position: static; }
-.af-home--panels .af-feature-project__content > .af-micro:first-child { margin: 0; }
-.af-home--panels .af-feature-project__category { margin-top: 1.25rem; }
+.af-home--panels .af-feature-project__category { margin: 0; }
 .af-home--panels .af-feature-project h3 { margin-top: 2rem; }
-.af-home--panels .af-feature-project__description { margin-top: 1.25rem; margin-bottom: 1.5rem; }
+.af-home--panels .af-feature-project__description {
+  margin-top: 1.25rem;
+  margin-bottom: 1.5rem;
+  color: rgba(255, 255, 255, .68);
+}
 .af-home--panels .af-feature-project__services { margin-top: auto; padding-top: 1rem; }
 
 .af-home--panels .af-work__inner {
   height: auto;
   padding-bottom: calc(var(--af-card-clearance) + 2.625rem);
+}
+
+@media (832px < width <= 960px) {
+  .af-home--panels .af-project-card__content { padding-inline-end: .75rem; }
+}
+
+.af-project-card__pulses,
+.af-project-card__fog,
+.af-project-card__sunlight {
+  display: none;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .af-project-card__pulses,
+  .af-project-card__fog,
+  .af-project-card__sunlight {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .af-project-card__pulse {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: af-thumb-pulse 8.4s ease-in-out infinite;
+  }
+
+  .af-project-card__pulse-halo { filter: blur(5px); }
+
+  .af-project-card__fog {
+    mix-blend-mode: screen;
+  }
+
+  .af-project-card__fog::before,
+  .af-project-card__fog::after {
+    content: "";
+    position: absolute;
+    inset: 0 -25%;
+    filter: blur(7px);
+  }
+
+  .af-project-card__fog::before {
+    background:
+      radial-gradient(ellipse 30% 13% at 53% 49%, rgb(221 235 230 / 88%), transparent),
+      radial-gradient(ellipse 25% 10% at 73% 56%, rgb(204 224 220 / 69%), transparent);
+    animation: af-thumb-fog 5s linear -1.6s infinite;
+  }
+
+  .af-project-card__fog::after {
+    background:
+      radial-gradient(ellipse 27% 12% at 35% 40%, rgb(204 224 219 / 68%), transparent),
+      radial-gradient(ellipse 26% 11% at 65% 62%, rgb(207 226 221 / 65%), transparent);
+    animation: af-thumb-fog 7s linear -4.5s infinite;
+  }
+
+  .af-project-card__picture[data-artwork-motion="sunset"] img {
+    animation: af-thumb-dusk 9s ease-in-out infinite;
+  }
+
+  .af-project-card__sunlight {
+    mix-blend-mode: screen;
+    animation: af-thumb-sunlight 9s ease-in-out infinite;
+  }
+
+  /* The light meets the pavement at the angle of the wall in the photograph. */
+  .af-project-card__sunlight::before,
+  .af-project-card__sunlight::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-size: 160% 100%;
+    animation: af-thumb-sunlight-drift 9s ease-in-out infinite;
+  }
+
+  .af-project-card__sunlight::before {
+    clip-path: polygon(0 0, 100% 0, 100% 66%, 0 81%);
+    background-image: repeating-linear-gradient(97deg, transparent 0 12%, rgb(255 176 99 / 52%) 12.4% 17%, transparent 17.5% 21%);
+  }
+
+  .af-project-card__sunlight::after {
+    clip-path: polygon(0 81%, 100% 66%, 100% 100%, 0 100%);
+    background-image: repeating-linear-gradient(35deg, transparent 0 12%, rgb(255 174 93 / 41%) 12.5% 15.5%, transparent 16% 21%);
+  }
+}
+
+@keyframes af-thumb-pulse {
+  0%, 31%, 100% { opacity: 0; transform: scale(.45); }
+  8%, 22% { opacity: 1; transform: scale(1.12); }
+  15% { opacity: .65; transform: scale(.85); }
+}
+
+@keyframes af-thumb-fog {
+  0% { opacity: 0; transform: translate(35%, 3%); }
+  22%, 75% { opacity: 1; }
+  100% { opacity: 0; transform: translate(-35%, -4%); }
+}
+
+@keyframes af-thumb-dusk {
+  0%, 100% { filter: brightness(1); }
+  67%, 84% { filter: brightness(.66) saturate(1.16) sepia(.15); }
+}
+
+@keyframes af-thumb-sunlight {
+  0%, 100% { opacity: 0; }
+  25%, 60% { opacity: .9; }
+  86% { opacity: .2; }
+}
+
+@keyframes af-thumb-sunlight-drift {
+  0% { background-position: 30% 0; }
+  90%, 100% { background-position: 70% 0; }
 }
 
 .af-home--panels .af-approach__inner {
@@ -380,14 +503,14 @@
   .af-studio-teaser { margin-top: 1.25rem; }
   .af-home--panels .af-feature-project { height: auto; }
   .af-home--panels .af-feature-project__artwork { aspect-ratio: 836 / 600; }
-  .af-home--panels .af-feature-project__content { padding: 2rem; }
+  .af-home--panels .af-feature-project__content { padding: 2rem 0; }
   .af-home--panels .af-approach__inner { min-height: auto; }
   .af-home--panels .af-manifesto h2 { font-size: clamp(2.2525rem, 6.8vw, 3.4rem); }
 }
 
 @media (max-width: 576px) {
   .af-home--panels .af-manifesto h2 { font-size: clamp(2.0825rem, 10.2vw, 2.89rem); }
-  .af-home--panels .af-feature-project__content { padding: 1.5rem; }
+  .af-home--panels .af-feature-project__content { padding: 1.5rem 0; }
   .af-home--panels .af-feature-project h3 { margin-top: 2rem; }
   .af-home--panels .af-feature-project__services { margin-top: 2rem; }
   .af-home--panels .af-footer__cta { font-size: clamp(2rem, 8vw, 2.75rem); }
@@ -420,7 +543,7 @@
   margin-top: 4rem;
 }
 
-/* The mobile opening is a centered wordmark, with no competing illustration. */
+/* Align the mobile opening to the page gutter. */
 .af-home-mobile-nav { display: none; }
 
 @media (max-width: 832px) {
@@ -428,8 +551,7 @@
   .af-home--panels .af-hero__inner { min-height: 100svh; }
   .af-home--panels .af-hero__inner {
     display: grid;
-    grid-template-columns: minmax(0, max-content);
-    justify-content: center;
+    grid-template-columns: minmax(0, 1fr);
     justify-items: start;
     row-gap: clamp(18px, 5svh, 40px);
     padding-block: calc(44px + max(1rem, env(safe-area-inset-bottom, 0px)));
@@ -439,18 +561,26 @@
     display: flex;
     width: 100%;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
   }
-  .af-home--panels .af-hero__context { justify-content: center; max-width: 100%; }
+  .af-home--panels .af-hero__context {
+    justify-content: flex-start;
+    max-width: 100%;
+    text-transform: none;
+  }
   .af-home--panels .af-hero__context p { white-space: normal; text-wrap: balance; }
   .af-home--panels .af-hero h1 {
     margin: clamp(18px, 5svh, 40px) 0 0;
     font-size: clamp(84px, min(24vw, 23svh), 150px);
-    text-align: center;
+    text-align: left;
   }
   .af-home--panels .af-hero h1 em { margin-left: 0; }
-  .af-home--panels .af-hero__services { width: 100%; margin: 0; font-size: 11px; text-align: left; }
+  .af-home--panels .af-hero__services { width: 100%; margin: 0; font-size: 13px; text-align: left; }
+  .af-home--panels .af-hero__services li {
+    display: grid;
+    grid-template-columns: 1.45rem minmax(0, 1fr);
+  }
   .af-home--panels .af-process-card { min-height: 0; padding: 24px; }
   .af-home--panels .af-process-card__copy { margin-top: 32px; }
   .af-home--panels .af-process-card__copy > p { min-height: 0; }

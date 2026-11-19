@@ -21,7 +21,7 @@
 
 :root {
   --af-ink: #ffffff;
-  --af-charcoal: #181818;
+  --af-charcoal: #111111;
   --af-paper: var(--af-charcoal);
   --af-warm: #ffffff;
   --af-lavender: #9fa8ff;
@@ -434,7 +434,6 @@ textarea {
   border-left: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.af-feature-project__content > .af-micro:first-child,
 .af-feature-project__category,
 .af-feature-project h3,
 .af-feature-project__description,
@@ -442,10 +441,6 @@ textarea {
   position: absolute;
   right: 2.5rem;
   left: 2.5rem;
-}
-
-.af-feature-project__content > .af-micro:first-child {
-  top: 2.5rem;
 }
 
 .af-feature-project__category {
@@ -468,6 +463,7 @@ textarea {
   max-width: 23rem;
   top: 20.5rem;
   margin: 0;
+  text-wrap: balance;
   font-family: "Instrument Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: clamp(1.15rem, 1.65vw, 1.405rem);
   line-height: 1.18;
@@ -505,14 +501,21 @@ textarea {
   background: var(--af-charcoal);
 }
 
+.af-project-card__picture {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  height: 100%;
+  transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 .af-project-card__artwork img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.af-project-card__link:hover .af-project-card__artwork img {
+.af-project-card__link:hover .af-project-card__picture {
   transform: scale(1.02);
 }
 
@@ -523,6 +526,7 @@ textarea {
   flex-direction: column;
   gap: 0.5rem;
   padding: 1.25rem;
+  padding-inline-start: 0;
 }
 
 .af-project-card h3 {
@@ -534,13 +538,14 @@ textarea {
   letter-spacing: -0.065em;
 }
 
-.af-project-card__tags {
+.af-project-card__description {
   margin: 0;
+  text-wrap: balance;
+  color: rgba(255, 255, 255, .68);
   font-family: "Karla", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 0.7rem;
-  font-weight: 600;
-  line-height: 1.35;
-  white-space: pre-wrap;
+  font-size: 0.825rem;
+  font-weight: 400;
+  line-height: 1.45;
 }
 
 .af-approach {
@@ -678,11 +683,6 @@ textarea {
   line-height: 1.5;
 }
 
-.af-footer__meta strong {
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
 .af-footer__meta > :last-child {
   text-align: right;
 }
@@ -811,7 +811,6 @@ textarea {
     border-left: 0;
   }
 
-  .af-feature-project__content > .af-micro:first-child,
   .af-feature-project__category,
   .af-feature-project h3,
   .af-feature-project__description,
