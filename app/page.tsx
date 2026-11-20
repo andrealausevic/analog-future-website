@@ -192,8 +192,7 @@ export default function Home() {
                 </p>
                 <h3><a href="/work/cadence">Cadence</a></h3>
                 <p className="af-feature-project__description">
-                  A time-awareness platform that turns everyday activity into a
-                  visual record of how life is actually lived.
+                  Your time goes somewhere. Cadence helps you figure out where.
                 </p>
                 <p className="af-feature-project__services af-micro">
                   Product strategy&nbsp;&nbsp;&nbsp; Identity<br />
