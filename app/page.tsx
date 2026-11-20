@@ -250,11 +250,11 @@ export default function Home() {
             </a>
             <div className="af-footer__meta">
               <Wordmark href="#top" />
-              <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
               <span className="af-footer__location">
-                Berlin · New York · <a href="/studio">Studio ↗</a>
+                New York · Berlin · <a href="/studio">Studio ↗</a>
               </span>
-              <a href="#top">Back to top ↑</a>
+              <a className="af-footer__email" href={`mailto:${contactEmail}`}>{contactEmail}</a>
+              <a className="af-footer__back" href="#top">Back to top ↑</a>
             </div>
           </div>
         </div>

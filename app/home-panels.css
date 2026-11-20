@@ -236,6 +236,11 @@
   white-space: nowrap;
 }
 
+@media (width > 832px) {
+  .af-footer__email { grid-area: 1 / 2; }
+  .af-footer__location { grid-area: 1 / 3; }
+}
+
 .af-home--panels .af-manifesto__inner {
   grid-template-columns: 13.4rem minmax(0, 1fr);
   min-height: max(calc(100svh - var(--af-tab-height)), 36.125rem);
@@ -503,14 +508,29 @@
   .af-studio-teaser { margin-top: 1.25rem; }
   .af-home--panels .af-feature-project { height: auto; }
   .af-home--panels .af-feature-project__artwork { aspect-ratio: 836 / 600; }
-  .af-home--panels .af-feature-project__content { padding: 2rem 0; }
+  .af-home--panels .af-feature-project__content { padding: 2rem 1.25rem; }
+  .af-home--panels .af-footer__meta {
+    grid-template-columns: minmax(0, 1fr);
+    gap: .625rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+  }
+  .af-footer__meta .af-wordmark { margin-bottom: .75rem; }
+  .af-footer__email { justify-self: start; }
+  .af-footer__back {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    justify-self: end;
+    margin-top: .75rem;
+  }
   .af-home--panels .af-approach__inner { min-height: auto; }
   .af-home--panels .af-manifesto h2 { font-size: clamp(2.2525rem, 6.8vw, 3.4rem); }
 }
 
 @media (max-width: 576px) {
   .af-home--panels .af-manifesto h2 { font-size: clamp(2.0825rem, 10.2vw, 2.89rem); }
-  .af-home--panels .af-feature-project__content { padding: 1.5rem 0; }
+  .af-home--panels .af-feature-project__content { padding-block: 1.5rem; }
   .af-home--panels .af-feature-project h3 { margin-top: 2rem; }
   .af-home--panels .af-feature-project__services { margin-top: 2rem; }
   .af-home--panels .af-footer__cta { font-size: clamp(2rem, 8vw, 2.75rem); }
